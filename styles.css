@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(to right, rgb(97, 73, 84), rgba(164, 139, 151, 0.95));
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+/* GUI Styling */
+
+:root {
+    --header: rgb(146, 110, 127);
+    --header-hover: rgb(129, 97, 112);
+    --bg-main: rgba(153, 119, 135, 0.95);
+    --bg-light: rgba(164, 139, 151, 0.95);
+    --dark-solid: rgb(97, 73, 84);
+  
+    --monospace: Consolas, monospace;
+    --serif: Georgia, serif;
+    --sans-serif: Helvetica, Arial, sans-serif;
+}
+
+#options {
+    display: block; 
+    width: 300px;
+    position: absolute;
+    font-family: var(--monospace);
+    border: solid 1px var(--dark-solid);
+    margin: 10px;
+    padding-bottom: 0.3em;
+    background: var(--bg-light);
+    font-size: 10px;
+}
+
+.tab {
+    border-bottom: 1px solid var(--dark-solid);
+    height: 2.2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+button.options {
+    width: 100%;
+    background-color: var(--bg-main);
+    font-weight: bold;
+    border: none;
+    transition: 0.2s;
+}
+
+button.options:hover {
+    background-color: var(--header-hover);
+    color: white;
+}
+
+button.active {
+    background-color: var(--header);
+    color: white;
+}
+
+.tabcontent {
+    display: none;
+    padding: 0 12px 2px 12px;
+    opacity: 0.9;
+    text-align: justify;
+}
+
+.tabcontent a {
+    color: #1d1b1c;
+    font-weight: bold;
+    text-decoration: underline;
+}

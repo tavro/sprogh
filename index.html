@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sprogh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>sprogh</h1>
+        <p>en språkgenerator</p>
+    </header>
+
+    <main>
+        <div id="options" style="display: block; width: 300px;">
+            <div class="tab">
+                <button id="overviewTab" class="options active">Översikt</button>
+                <button id="grammarTab" class="options">Grammatik</button>
+                <button id="dictionaryTab" class="options">Lexikon</button>
+            </div>
+            
+            <div id="overviewContent" class="tabcontent" style="display: block;">
+                <div class="lang-meta">
+                    <h2 id="name">[språknamn]</h2>
+                    <div id="flag"></div>
+                </div>
+                <p id="original"><i>den snabba bruna räven hoppar över den lata hunden...</i></p>
+                <p id="generated"><b>abc defgh ijklm nop qrstu vwxy zåä öabc def...</b></p>
+            </div>
+            <div id="grammarContent" class="tabcontent" style="display: none;">
+                <h2>pronomen</h2>
+                <p>jag (mig)</p>
+                <p>du (dig)</p>
+                <p>han (honom)</p>
+                <p>hon (henne)</p>
+                <p>hen (henom)</p>
+                <p>den (den)</p>
+                <p>det (det)</p>
+                <p>man (en)</p>
+                <h2>talsystem</h2>
+                <p>decimala talsystemet</p>
+                <p>1 -</p>
+                <p>2 -</p>
+                <p>3 -</p>
+                <p>4 -</p>
+                <p>5 -</p>
+                <p>6 -</p>
+                <p>7 - </p>
+                <p>8 -</p>
+                <p>9 -</p>
+                <p>10 -</p>
+                <p>100 -</p>
+                <p>1000 -</p>
+            </div>
+            <div id="dictionaryContent" class="tabcontent" style="display: none;">
+                <h2>[språknamn] till svenska</h2>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="gui.js"></script>
+</body>
+
+</html>
