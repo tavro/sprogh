@@ -24,51 +24,328 @@
             
             <div id="overviewContent" class="tabcontent" style="display: block;">
                 <div class="lang-meta">
-                    <h2 id="name">[språknamn]</h2>
+                    <h2 id="name"></h2>
                     <div id="flag"></div>
                 </div>
-                <p id="original"><i>den snabba bruna räven hoppar över den lata hunden...</i></p>
-                <p id="generated"><b>abc defgh ijklm nop qrstu vwxy zåä öabc def...</b></p>
+                <p id="original"><i>den snabba bruna räven hoppar över den lata hunden</i></p>
+                <p id="generated"><b>den snabba bruna räven hoppar över den lata hunden</b></p>
             </div>
             <div id="grammarContent" class="tabcontent" style="display: none;">
                 <h3>konsonanter</h3>
                 <p>b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, z och x</p>
                 <h3>vokaler</h3>
                 <p>a, e, i, o, u, y, å, ä och ö.</p>
+                
                 <h2>substantiv</h2>
-                <p>singular</p>
-                <p>plural</p>
+
+                <h3>artikeln en & slutar på a</h3>
+                <table border="1">
+                    <tr>
+                        <th>obestämd singular</th>
+                        <th>bestämd singular</th>
+                        <th>obestämd plural</th>
+                        <th>bestämd plural</th>
+                    </tr>
+                    <tr>
+                        <td><small><i>ingen böjning</i></small></td>
+                        <td><span><span id="s-n2"></span> <small><i>(-n)</i></small></span></td>
+                        <td><span><span id="s-or"></span> <small><i>(-or)</i></small></span></td>
+                        <td><span><span id="s-orna"></span> <small><i>(-orna)</i></small></span></td>
+                    </tr>
+                </table>
+                
+                <h3>artikeln en & slutar på -ing, -dom, -el, -er eller -en</h3>
+                <table border="1">
+                    <tr>
+                        <th>obestämd singular</th>
+                        <th>bestämd singular</th>
+                        <th>obestämd plural</th>
+                        <th>bestämd plural</th>
+                    </tr>
+                    <tr>
+                        <td><small><i>ingen böjning</i></small></td>
+                        <td><span><span id="s-en1"></span> <small><i>(-en)</i></small></span></td>
+                        <td><span><span id="s-ar"></span> <small><i>(-ar)</i></small></span></td>
+                        <td><span><span id="s-arna"></span> <small><i>(-arna)</i></small></span></td>
+                    </tr>
+                </table>
+                
+                <h3>artikeln en & slutar på -het, -else, -ion eller -när samt artikeln ett & slutar på -um, -eri eller -ori</h3>
+                <table border="1">
+                    <tr>
+                        <th>obestämd singular</th>
+                        <th>bestämd singular</th>
+                        <th>obestämd plural</th>
+                        <th>bestämd plural</th>
+                    </tr>
+                    <tr>
+                        <td><small><i>ingen böjning</i></small></td>
+                        <td><span><span id="s-en2"></span> <small><i>(-en)</i></small></span></td>
+                        <td><span><span id="s-er"></span> <small><i>(-er)</i></small></span></td>
+                        <td><span><span id="s-erna"></span> <small><i>(-erna)</i></small></span></td>
+                    </tr>
+                </table>
+                
+                <h3>artikeln ett & slutar på vokal</h3>
+                <table border="1">
+                    <tr>
+                        <th>obestämd singular</th>
+                        <th>bestämd singular</th>
+                        <th>obestämd plural</th>
+                        <th>bestämd plural</th>
+                    </tr>
+                    <tr>
+                        <td><small><i>ingen böjning</i></small></td>
+                        <td><span><span id="s-et"></span> <small><i>(-et)</i></small></span></td>
+                        <td><span><span id="s-n1"></span> <small><i>(-n)</i></small></span></td>
+                        <td><span><span id="s-na"></span> <small><i>(-na)</i></small></span></td>
+                    </tr>
+                </table>
+                
+                <!-- 
+                <h3>resten</h3>
+                <table border="1">
+                    <tr>
+                        <th>bestämd singular</th>
+                        <th>obestämd plural</th>
+                        <th>bestämd plural</th>
+                    </tr>
+                </table>
+                <p>oklart...</p>
+                -->
+
                 <h2>verb</h2>
-                <p>infinitiv</p>
-                <p>presens</p>
-                <p>preteritum</p>
-                <p>supinum</p>
+                <h3>slutar på bokstaven a när de är i grundform</h3>
+                <table border="1">
+                    <tr>
+                        <th>infinitiv</th>
+                        <th>presens</th>
+                        <th>preteritum</th>
+                        <th>supinum</th>
+                    </tr>
+                    <tr>
+                        <td><small><i>ingen böjning</i></small></td>
+                        <td><span><span id="v-r1"></span> <small><i>(-r)</i></small></span></td>
+                        <td><span><span id="v-de"></span> <small><i>(-de)</i></small></span></td>
+                        <td><span><span id="v-t"></span> <small><i>(-t)</i></small></span></td>
+                    </tr>
+                </table>
+                <!-- <h3>oklart</h3> -->
+                <h3>bara en stavelse</h3>
+                <table border="1">
+                    <tr>
+                        <th>infinitiv</th>
+                        <th>presens</th>
+                        <th>preteritum</th>
+                        <th>supinum</th>
+                    </tr>
+                    <tr>
+                        <td><small><i>ingen böjning</i></small></td>
+                        <td><span><span id="v-r2"></span> <small><i>(-r)</i></small></span></td>
+                        <td><span><span id="v-dde"></span> <small><i>(-dde)</i></small></span></td>
+                        <td><span><span id="v-tt"></span> <small><i>(-tt)</i></small></span></td>
+                    </tr>
+                </table>
+                <!-- <h3>oklart</h3> -->
+                
                 <h2>pronomen</h2>
-                <p>jag (mig)</p>
-                <p>du (dig)</p>
-                <p>han (honom)</p>
-                <p>hon (henne)</p>
-                <p>hen (henom)</p>
-                <p>den (den)</p>
-                <p>det (det)</p>
-                <p>man (en)</p>
-                <h2>talsystem</h2>
-                <p>decimala talsystemet</p>
-                <p>1 -</p>
-                <p>2 -</p>
-                <p>3 -</p>
-                <p>4 -</p>
-                <p>5 -</p>
-                <p>6 -</p>
-                <p>7 - </p>
-                <p>8 -</p>
-                <p>9 -</p>
-                <p>10 -</p>
-                <p>100 -</p>
-                <p>1000 -</p>
+                <h3>personliga pronomen</h3>
+                <h4>singular</h4>
+                <table border="1">
+                    <tr>
+                        <th>nominativ (subjektsform)</th>
+                        <th>ackusativ (objektsform)</th>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-jag"></span> <small><i>(jag)</i></small></span></td>
+                        <td><span><span id="a-mig"></span> <small><i>(mig)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-du"></span> <small><i>(du)</i></small></span></td>
+                        <td><span><span id="a-dig"></span> <small><i>(dig)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-han"></span> <small><i>(han)</i></small></span></td>
+                        <td><span><span id="a-honom"></span> <small><i>(honom)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-hon"></span> <small><i>(hon)</i></small></span></td>
+                        <td><span><span id="a-henne"></span> <small><i>(henne)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-hen"></span> <small><i>(hen)</i></small></span></td>
+                        <td><span><span id="a-hen"></span> <small><i>(hen)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-den"></span> <small><i>(den)</i></small></span></td>
+                        <td><span><span id="a-den"></span> <small><i>(den)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-det"></span> <small><i>(det)</i></small></span></td>
+                        <td><span><span id="a-det"></span> <small><i>(det)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-man"></span> <small><i>(man)</i></small></span></td>
+                        <td><span><span id="a-en"></span> <small><i>(en)</i></small></span></td>
+                    </tr>
+                </table>
+                <h4>plural</h4>
+                <table border="1">
+                    <tr>
+                        <th>nominativ (subjektsform)</th>
+                        <th>ackusativ (objektsform)</th>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-vi"></span> <small><i>(vi)</i></small></span></td>
+                        <td><span><span id="a-oss"></span> <small><i>(oss)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-ni"></span> <small><i>(ni)</i></small></span></td>
+                        <td><span><span id="a-er"></span> <small><i>(er)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td><span><span id="p-de"></span> <small><i>(de)</i></small></span></td>
+                        <td><span><span id="a-dem"></span> <small><i>(dem)</i></small></span></td>
+                    </tr>
+                </table>
+                <!-- TODO: <h3>possessiva pronomen</h3>-->
+                <h2>räkneord</h2>
+                <p><span id="name2"></span> använder det decimala talsystemet</p>
+                <table border="1">
+                    <tr>
+                        <th>siffra</th>
+                        <th>ord</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td><span><span id="n-noll"></span> <small><i>(noll)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><span><span id="n-ett"></span> <small><i>(ett)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><span><span id="n-två"></span> <small><i>(två)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><span><span id="n-tre"></span> <small><i>(tre)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><span><span id="n-fyra"></span> <small><i>(fyra)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><span><span id="n-fem"></span> <small><i>(fem)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><span><span id="n-sex"></span> <small><i>(sex)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><span><span id="n-sju"></span> <small><i>(sju)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><span><span id="n-åtta"></span> <small><i>(åtta)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><span><span id="n-nio"></span> <small><i>(nio)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><span><span id="n-tio"></span> <small><i>(tio)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td><span><span id="n-elva"></span> <small><i>(elva)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td><span><span id="n-tolv"></span> <small><i>(tolv)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td><span><span id="n-tretton"></span> <small><i>(tretton)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td><span><span id="n-fjorton"></span> <small><i>(fjorton)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td><span><span id="n-femton"></span> <small><i>(femton)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td><span><span id="n-sexton"></span> <small><i>(sexton)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td><span><span id="n-sjutton"></span> <small><i>(sjutton)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td><span><span id="n-arton"></span> <small><i>(arton)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td><span><span id="n-nitton"></span> <small><i>(nitton)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td><span><span id="n-tjugo"></span> <small><i>(tjugo)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td><span><span id="n-trettio"></span> <small><i>(trettio)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td><span><span id="n-fyrtio"></span> <small><i>(fyrtio)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td><span><span id="n-femtio"></span> <small><i>(femtio)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td><span><span id="n-sextio"></span> <small><i>(sextio)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>70</td>
+                        <td><span><span id="n-sjuttio"></span> <small><i>(sjuttio)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>80</td>
+                        <td><span><span id="n-åttio"></span> <small><i>(åttio)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>90</td>
+                        <td><span><span id="n-nittio"></span> <small><i>(nittio)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td><span><span id="n-hundra"></span> <small><i>(hundra)</i></small></span></td>
+                    </tr>
+                    <tr>
+                        <td>1000</td>
+                        <td><span><span id="n-tusen"></span> <small><i>(tusen)</i></small></span></td>
+                    </tr>
+                </table>
             </div>
             <div id="dictionaryContent" class="tabcontent" style="display: none;">
-                <h2>[språknamn] till svenska</h2>
+                <h2><span id="name3"></span> till svenska</h2>
+                <table border="1" id="dict">
+                    <tr>
+                        <th>svenska</th>
+                        <th><span id="name4"></span></th>
+                    </tr>
+                </table>
             </div>
         </div>
     </main>
