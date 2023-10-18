@@ -1,3 +1,12 @@
+function setElement(id, value) {
+    var element = document.getElementById(id);
+    if (element) {
+        element.innerHTML = value;
+    } else {
+        console.error("Element with id " + id + " not found.");
+    }
+}
+
 function getRandomHexColor() {
     var letters = "0123456789ABCDEF";
     var color = "#";
@@ -287,139 +296,82 @@ function generateLanguageName(syllableAmount) { // TODO: Optimize
         name += randomSyllable;
     }
 
-    var langName = document.getElementById("name");
-    var langName2 = document.getElementById("name2");
-    var langName3 = document.getElementById("name3");
-    var langName4 = document.getElementById("name4");
-    langName.innerHTML = name + "iska";
-    langName2.innerHTML = name + "iska";
-    langName3.innerHTML = name + "iska";
-    langName4.innerHTML = name + "iska";
+    const langName = name + "iska";
+    setElement("name", langName);
+    setElement("name2", langName);
+    setElement("name3", langName);
+    setElement("name4", langName);
 }
 
-function generatePronouns() { // TODO: Optimize
+function generatePronouns() {
     var ending = getEnding();
 
-    var startingConsonant = getRandomConsonant();
-    var middleVowel = getRandomVowel();
-    var endingConsonant = getRandomConsonant();
-    nominativPronouns.jag = startingConsonant + middleVowel + endingConsonant;
-    startingConsonant = getRandomConsonant();
-    ackusativPronouns.mig = startingConsonant + ending;
-    var pjag = document.getElementById("p-jag");
-    pjag.innerHTML = nominativPronouns.jag;
-    var amig = document.getElementById("a-mig");
-    amig.innerHTML = ackusativPronouns.mig;
-
-    startingConsonant = getRandomConsonant();
-    middleVowel = getRandomVowel();
-    nominativPronouns.du = startingConsonant + middleVowel;
-    ackusativPronouns.dig = startingConsonant + ending;
-    var pdu = document.getElementById("p-du");
-    pdu.innerHTML = nominativPronouns.du;
-    var adig = document.getElementById("a-dig");
-    adig.innerHTML = ackusativPronouns.dig;
+    ackusativPronouns.mig = getRandomConsonant() + ending;
+    nominativPronouns.jag = generateWordByPattern("cvc");
+    setElement("p-jag", nominativPronouns.jag);
+    setElement("a-mig", ackusativPronouns.mig);
     
-    startingConsonant = getRandomConsonant();
-    endingConsonant = getRandomConsonant();
+    nominativPronouns.du = generateWordByPattern("cv");
+    ackusativPronouns.dig = nominativPronouns.du[0] + ending;
+    setElement("p-du", nominativPronouns.du);
+    setElement("a-dig", ackusativPronouns.dig);
     
-    let p1 = middleVowel = getRandomVowel();
-    nominativPronouns.han = startingConsonant + middleVowel + endingConsonant;
-    var phan = document.getElementById("p-han");
-    phan.innerHTML = nominativPronouns.han;
+    const c1 = getRandomConsonant();
+    const c2 = getRandomConsonant();
     
-    middleVowel = getUniqueVowel(middleVowel);
-    nominativPronouns.hon = startingConsonant + middleVowel + endingConsonant;
-    var phon = document.getElementById("p-hon");
-    phon.innerHTML = nominativPronouns.hon;
+    nominativPronouns.han = c1 + getRandomVowel() + c2;
+    setElement("p-han", nominativPronouns.han);
     
-    middleVowel = getUniqueVowel2(p1, middleVowel);
-    nominativPronouns.hen = startingConsonant + middleVowel + endingConsonant;
-    ackusativPronouns.hen = startingConsonant + middleVowel + endingConsonant;
-    var phen = document.getElementById("p-hen");
-    phen.innerHTML = nominativPronouns.hen;
-    var ahen = document.getElementById("a-hen");
-    ahen.innerHTML = ackusativPronouns.hen;
-
-    ending = getEnding();
-    middleVowel = getRandomVowel();
-    ackusativPronouns.honom = startingConsonant + middleVowel + endingConsonant + ending;
-
-    middleVowel = getUniqueVowel(middleVowel);
-    ackusativPronouns.henne = startingConsonant + middleVowel + endingConsonant + endingConsonant + middleVowel;
-
-    var ahonom = document.getElementById("a-honom");
-    ahonom.innerHTML = ackusativPronouns.honom;
-    var ahenne = document.getElementById("a-henne");
-    ahenne.innerHTML = ackusativPronouns.henne;
+    nominativPronouns.hon = c1 + getUniqueVowel(nominativPronouns.han[1]) + c2;
+    setElement("p-hon", nominativPronouns.hon);
     
-    startingConsonant = getRandomConsonant();
-    middleVowel = getRandomVowel();
+    nominativPronouns.hen = c1 + getUniqueVowel2(nominativPronouns.han[1], nominativPronouns.hon[1]) + c2;
+    ackusativPronouns.hen = nominativPronouns.hen;
+    setElement("p-hen", nominativPronouns.hen);
+    setElement("a-hen", ackusativPronouns.hen);
 
-    endingConsonant = getRandomConsonant();
-    nominativPronouns.den = startingConsonant + middleVowel + endingConsonant;
-    ackusativPronouns.den = startingConsonant + middleVowel + endingConsonant;
-    var pden = document.getElementById("p-den");
-    pden.innerHTML = nominativPronouns.den;
-    var aden = document.getElementById("a-den");
-    aden.innerHTML = ackusativPronouns.den;
+    ackusativPronouns.honom = c1 + getRandomVowel() + c2 + getEnding();
+    setElement("a-honom", ackusativPronouns.honom);
+    
+    const pair = getUniqueVowel(ackusativPronouns.honom[1]) + c2;
+    ackusativPronouns.henne = c1 + pair + reverse(pair);
+    setElement("a-henne", ackusativPronouns.henne);
+    
+    const basis = generateWordByPattern("cv");
+    nominativPronouns.den = basis + getRandomConsonant();
+    ackusativPronouns.den = nominativPronouns.den;
+    setElement("p-den", nominativPronouns.den);
+    setElement("a-den", ackusativPronouns.den);
 
-    endingConsonant = getUniqueConsonant(endingConsonant);
-    nominativPronouns.det = startingConsonant + middleVowel + endingConsonant;
-    ackusativPronouns.det = startingConsonant + middleVowel + endingConsonant;
-    var pdet = document.getElementById("p-det");
-    pdet.innerHTML = nominativPronouns.det;
-    var adet = document.getElementById("a-det");
-    adet.innerHTML = ackusativPronouns.det;
+    nominativPronouns.det = basis + getUniqueConsonant(ackusativPronouns.den[2]);
+    ackusativPronouns.det = nominativPronouns.det;
+    setElement("p-det", nominativPronouns.det);
+    setElement("a-det", ackusativPronouns.det);
 
-    startingConsonant = getRandomConsonant();
-    endingConsonant = getRandomConsonant();
-    middleVowel = getRandomVowel();
-    nominativPronouns.man = startingConsonant + middleVowel + endingConsonant;
-    middleVowel = getUniqueVowel(middleVowel);
-    ackusativPronouns.en = middleVowel + endingConsonant;
-    var pman = document.getElementById("p-man");
-    pman.innerHTML = nominativPronouns.man;
+    nominativPronouns.man = generateWordByPattern("cvc");
+    ackusativPronouns.en =  getUniqueVowel(nominativPronouns.man[1]) + nominativPronouns.man[2];
+    setElement("p-man", nominativPronouns.man);
+    setElement("a-en", ackusativPronouns.en);
+    setElement("s-en1", "-" + ackusativPronouns.en);
+    setElement("s-en2", "-" + ackusativPronouns.en);
 
-    var aen = document.getElementById("a-en");
-    var sen1 = document.getElementById("s-en1");
-    var sen2 = document.getElementById("s-en2");
-    aen.innerHTML = ackusativPronouns.en;
-    sen1.innerHTML = "-" + ackusativPronouns.en;
-    sen2.innerHTML = "-" + ackusativPronouns.en;
+    nominativPronouns.vi = generateWordByPattern("vc");
+    setElement("p-vi", nominativPronouns.vi);
 
-    startingConsonant = getRandomConsonant();
-    middleVowel = getRandomVowel();
-    nominativPronouns.vi = startingConsonant + middleVowel;
-    var pvi = document.getElementById("p-vi");
-    pvi.innerHTML = nominativPronouns.vi;
+    nominativPronouns.ni = getUniqueConsonant(nominativPronouns.vi[0]) + getRandomVowel();
+    setElement("p-ni", nominativPronouns.ni);
 
-    startingConsonant = getUniqueConsonant(startingConsonant);
-    nominativPronouns.ni = startingConsonant + middleVowel;
-    var pni = document.getElementById("p-ni");
-    pni.innerHTML = nominativPronouns.ni;
+    nominativPronouns.de = getRandomConsonant() + getUniqueVowel2(nominativPronouns.vi[1], nominativPronouns.ni[1]);
+    ackusativPronouns.dem = nominativPronouns.de + getRandomConsonant();
+    setElement("p-de", nominativPronouns.de);
+    setElement("a-dem", ackusativPronouns.dem);
 
-    startingConsonant = getRandomConsonant();
-    middleVowel = getUniqueVowel(middleVowel);
-    nominativPronouns.de = startingConsonant + middleVowel;
-    endingConsonant = getRandomConsonant();
-    ackusativPronouns.dem = startingConsonant + middleVowel + endingConsonant;
-    var pde = document.getElementById("p-de");
-    pde.innerHTML = nominativPronouns.de;
-    var adem = document.getElementById("a-dem");
-    adem.innerHTML = ackusativPronouns.dem;
+    ackusativPronouns.oss = generateWordByPattern("vc");
+    ackusativPronouns.oss += ackusativPronouns.oss[1]; 
+    setElement("a-oss", ackusativPronouns.oss);
 
-    middleVowel = getRandomVowel();
-    endingConsonant = getRandomConsonant();
-    ackusativPronouns.oss = middleVowel + endingConsonant + endingConsonant;
-    var aoss = document.getElementById("a-oss");
-    aoss.innerHTML = ackusativPronouns.oss;
-
-    middleVowel = getRandomVowel();
-    endingConsonant = getRandomConsonant();
-    ackusativPronouns.er = middleVowel + endingConsonant;
-    var aer = document.getElementById("a-er");
-    aer.innerHTML = ackusativPronouns.er;
+    ackusativPronouns.er = generateWordByPattern("vc");
+    setElement("a-er", ackusativPronouns.er);
 }
 
 function generateNumbers() { // TODO: Optimize
@@ -459,116 +411,68 @@ function generateNumbers() { // TODO: Optimize
     numbers.hundra = getRandomConsonant() + getRandomVowel() + getRandomConsonants(3) + getRandomVowel();
     numbers.tusen = getRandomConsonant() + getRandomVowel() + getRandomConsonant() + getRandomVowel() + getRandomConsonant();
 
-    var nnoll = document.getElementById("n-noll");
-    var nett = document.getElementById("n-ett");
-    var ntvå = document.getElementById("n-två");
-    var ntre = document.getElementById("n-tre");
-    var nfyra = document.getElementById("n-fyra");
-    var nfem = document.getElementById("n-fem");
-    var nsex = document.getElementById("n-sex");
-    var nsju = document.getElementById("n-sju");
-    var nåtta = document.getElementById("n-åtta");
-    var nnio = document.getElementById("n-nio");
-    var ntio = document.getElementById("n-tio");
-    var nelva = document.getElementById("n-elva");
-    var ntolv = document.getElementById("n-tolv");
-    var ntretton = document.getElementById("n-tretton");
-    var nfjorton = document.getElementById("n-fjorton");
-    var nfemton = document.getElementById("n-femton");
-    var nsexton = document.getElementById("n-sexton");
-    var nsjutton = document.getElementById("n-sjutton");
-    var narton = document.getElementById("n-arton");
-    var nnitton = document.getElementById("n-nitton");
+    setElement("n-noll", numbers.noll);
+    setElement("n-ett", numbers.ett);
+    setElement("n-två", numbers.två);
+    setElement("n-tre", numbers.tre);
+    setElement("n-fyra", numbers.fyra);
+    setElement("n-fem", numbers.fem);
+    setElement("n-sex", numbers.sex);
+    setElement("n-sju", numbers.sju);
+    setElement("n-åtta", numbers.åtta);
+    setElement("n-nio", numbers.nio);
+    setElement("n-tio", numbers.tio);
+    setElement("n-elva", numbers.elva);
+    setElement("n-tolv", numbers.tolv);
+    setElement("n-tretton", numbers.tretton);
+    setElement("n-fjorton", numbers.fjorton);
+    setElement("n-femton", numbers.femton);
+    setElement("n-sexton", numbers.sexton);
+    setElement("n-sjutton", numbers.sjutton);
+    setElement("n-arton", numbers.arton);
+    setElement("n-nitton", numbers.nitton);
 
-    var ntjugo = document.getElementById("n-tjugo");
-    var ntrettio = document.getElementById("n-trettio");
-    var nfyrtio = document.getElementById("n-fyrtio");
-    var nfemtio = document.getElementById("n-femtio");
-    var nsextio = document.getElementById("n-sextio");
-    var nsjuttio = document.getElementById("n-sjuttio");
-    var nåttio = document.getElementById("n-åttio");
-    var nnittio = document.getElementById("n-nittio");
+    setElement("n-tjugo", numbers.tjugo);
+    setElement("n-trettio", numbers.trettio);
+    setElement("n-fyrtio", numbers.fyrtio);
+    setElement("n-femtio", numbers.femtio);
+    setElement("n-sextio", numbers.sextio);
+    setElement("n-sjuttio", numbers.sjuttio);
+    setElement("n-åttio", numbers.åttio);
+    setElement("n-nittio", numbers.nittio);
 
-    var nhundra = document.getElementById("n-hundra");
-    var ntusen = document.getElementById("n-tusen");
-
-    nnoll.innerHTML = numbers.noll;
-    nett.innerHTML = numbers.ett;
-    ntvå.innerHTML = numbers.två;
-    ntre.innerHTML = numbers.tre;
-    nfyra.innerHTML = numbers.fyra;
-    nfem.innerHTML = numbers.fem;
-    nsex.innerHTML = numbers.sex;
-    nsju.innerHTML = numbers.sju;
-    nåtta.innerHTML = numbers.åtta;
-    nnio.innerHTML = numbers.nio;
-    ntio.innerHTML = numbers.tio;
-    nelva.innerHTML = numbers.elva;
-    ntolv.innerHTML = numbers.tolv;
-    ntretton.innerHTML = numbers.tretton;
-    nfjorton.innerHTML = numbers.fjorton;
-    nfemton.innerHTML = numbers.femton;
-    nsexton.innerHTML = numbers.sexton;
-    nsjutton.innerHTML = numbers.sjutton;
-    narton.innerHTML = numbers.arton;
-    nnitton.innerHTML = numbers.nitton;
-
-    ntjugo.innerHTML = numbers.tjugo;
-    ntrettio.innerHTML = numbers.trettio;
-    nfyrtio.innerHTML = numbers.fyrtio;
-    nfemtio.innerHTML = numbers.femtio;
-    nsextio.innerHTML = numbers.sextio;
-    nsjuttio.innerHTML = numbers.sjuttio;
-    nåttio.innerHTML = numbers.åttio;
-    nnittio.innerHTML = numbers.nittio;
-
-    nhundra.innerHTML = numbers.hundra;
-    ntusen.innerHTML = numbers.tusen;
+    setElement("n-hundra", numbers.hundra);
+    setElement("n-tusen", numbers.tusen);
 }
 
 function generateNounBenders() { // TODO: Optimize
-    var consonant = getRandomConsonant();
+    const consonant = getRandomConsonant();
+    const ending = reverse(getEnding());
 
-    var vowel1 = getRandomVowel();
-    var vowel2 = getUniqueVowel(vowel1);
-    var vowel3 = getUniqueVowel2(vowel1, vowel2);
-    
-    nounBenders.or = vowel1 + consonant;
-    nounBenders.ar = vowel2 + consonant;
-    nounBenders.er = vowel3 + consonant;
+    nounBenders.or = getRandomVowel() + consonant;
+    nounBenders.ar = getUniqueVowel(nounBenders.or[0]) + consonant;
+    nounBenders.er = getUniqueVowel2(nounBenders.or[0], nounBenders.ar[0]) + consonant;
     nounBenders.n = getUniqueConsonant(consonant);
 
-    var ending = reverse(getEnding());
     nounBenders.orna = nounBenders.or + ending;
     nounBenders.arna = nounBenders.ar + ending;
     nounBenders.erna = nounBenders.er + ending;
     nounBenders.na = nounBenders.n + ending[1];
 
     nounBenders.et = ackusativPronouns.en[0] + getRandomConsonant(); 
-    var set = document.getElementById("s-et");
-    set.innerHTML = "-" + nounBenders.et;
 
-    var sor = document.getElementById("s-or");
-    var sar = document.getElementById("s-ar");
-    var ser = document.getElementById("s-er");
-    var sn1 = document.getElementById("s-n1");
-    var sn2 = document.getElementById("s-n2");
+    setElement("s-et", "-" + nounBenders.et);
 
-    var sorna = document.getElementById("s-orna");
-    var sarna = document.getElementById("s-arna");
-    var serna = document.getElementById("s-erna");
-    var sna = document.getElementById("s-na");
+    setElement("s-or", "-" + nounBenders.or);
+    setElement("s-ar", "-" + nounBenders.ar);
+    setElement("s-er", "-" + nounBenders.er);
+    setElement("s-n1", "-" + nounBenders.n);
+    setElement("s-n2", "-" + nounBenders.n);
 
-    sor.innerHTML = "-" + nounBenders.or;
-    sar.innerHTML = "-" + nounBenders.ar;
-    ser.innerHTML = "-" + nounBenders.er;
-    sn1.innerHTML = "-" + nounBenders.n;
-    sn2.innerHTML = "-" + nounBenders.n;
-
-    sorna.innerHTML = "-" + nounBenders.orna;
-    sarna.innerHTML = "-" + nounBenders.arna;
-    serna.innerHTML = "-" + nounBenders.erna;
-    sna.innerHTML = "-" + nounBenders.na;
+    setElement("s-orna", "-" + nounBenders.orna);
+    setElement("s-arna", "-" + nounBenders.arna);
+    setElement("s-erna", "-" + nounBenders.erna);
+    setElement("s-na", "-" + nounBenders.na);
 }
 
 function generateVerbBenders() { // TODO: Optimize
@@ -578,19 +482,12 @@ function generateVerbBenders() { // TODO: Optimize
     verbBenders.de = reverse(getEnding());
     verbBenders.dde = verbBenders.de[0] + verbBenders.de;
 
-    var vr1 = document.getElementById("v-r1");
-    var vr2 = document.getElementById("v-r2");
-    var vt = document.getElementById("v-t");
-    var vtt = document.getElementById("v-tt");
-    var vde = document.getElementById("v-de");
-    var vdde = document.getElementById("v-dde");
-
-    vr1.innerHTML = "-" + verbBenders.r;
-    vr2.innerHTML = "-" + verbBenders.r;
-    vt.innerHTML = "-" + verbBenders.t;
-    vtt.innerHTML = "-" + verbBenders.tt;
-    vde.innerHTML = "-" + verbBenders.de;
-    vdde.innerHTML = "-" + verbBenders.dde;
+    setElement("v-r1", "-" + verbBenders.r);
+    setElement("v-r2", "-" + verbBenders.r);
+    setElement("v-t", "-" + verbBenders.t);
+    setElement("v-tt", "-" + verbBenders.tt);
+    setElement("v-de", "-" + verbBenders.de);
+    setElement("v-dde", "-" + verbBenders.dde);
 }
 
 function getRandomElement(arr) {
@@ -617,16 +514,21 @@ function generateSentence() { // TODO: Implement support more general sentences 
     const nounToUse = getRandomElement(sv["subst"]);
     const nounEnding = getRandomElement(["en", "er"]);
 
-    var generated = document.getElementById("generated");
-    var original = document.getElementById("original");
-    original.innerHTML = pronomenToUse + " " + verbToUse + verbEnding + " " + prepositionToUse + " " + nounToUse + nounEnding;
-    generated.innerHTML = nominativPronouns[pronomenToUse] + " " + reverseJson(genLangToSv)[verbToUse] + verbBenders[verbEnding] + " " + reverseJson(genLangToSv)[prepositionToUse] + " " + reverseJson(genLangToSv)[nounToUse] + nounBenders[nounEnding];
+    setElement("original", pronomenToUse + " " + verbToUse + verbEnding + " " + prepositionToUse + " " + nounToUse + nounEnding);
+    setElement("generated", nominativPronouns[pronomenToUse] + " " + reverseJson(genLangToSv)[verbToUse] + verbBenders[verbEnding] + " " + reverseJson(genLangToSv)[prepositionToUse] + " " + reverseJson(genLangToSv)[nounToUse] + nounBenders[nounEnding]);
 }
 
 var lang = { 
-    "verb": [],
+    "adj": [],
     "subst": [],
-    "preposition": []
+    "adv": [],
+    "verb": [],
+    "preposition": [],
+    "interjecktion": [],
+    "räkneord": [],
+    "pronomen": [],
+    "subjunktion": [],
+    "konjunktion": []
 };
 
 // Names ("namn") are removed since this is not relevant.
@@ -119750,146 +119652,7 @@ var sv = {
         "åttiotusen",
         "åttonde"
     ],
-    "i sammansättningar": [
-        "aero-",
-        "afro-",
-        "alu-",
-        "andrahands-",
-        "angora-",
-        "ante-",
-        "anti-",
-        "antropo-",
-        "astro-",
-        "auto-",
-        "bauta-",
-        "bi-",
-        "bio-",
-        "cyber-",
-        "dal-",
-        "demo-",
-        "drive-in-",
-        "duplex-",
-        "dygnetrunt-",
-        "dö-",
-        "e-",
-        "eko-",
-        "elektro-",
-        "engångs-",
-        "ergo-",
-        "ex-",
-        "experimental-",
-        "forst-",
-        "fort-",
-        "foto-",
-        "frilufts-",
-        "förstahands-",
-        "gen-",
-        "general-",
-        "geo-",
-        "giga-",
-        "glacé-",
-        "gottköps-",
-        "grav-",
-        "gyn-",
-        "gör-",
-        "helio-",
-        "hemi-",
-        "hetero-",
-        "hydro-",
-        "hyper-",
-        "il-",
-        "ill-",
-        "infra-",
-        "inner-",
-        "interims-",
-        "jubel-",
-        "justitie-",
-        "kem-",
-        "kompound-",
-        "korp-",
-        "kriminal-",
-        "krypto-",
-        "kvadrupel-",
-        "kvasi-",
-        "labio-",
-        "lego-",
-        "livsstils-",
-        "länder-",
-        "makro-",
-        "maxi-",
-        "maximi-",
-        "medel-",
-        "mega-",
-        "mes-",
-        "meta-",
-        "mezzo-",
-        "mid-",
-        "mikro-",
-        "milli-",
-        "mini-",
-        "minimi-",
-        "miss-",
-        "moder-",
-        "multi-",
-        "nano-",
-        "national-",
-        "nazi-",
-        "neo-",
-        "neuro-",
-        "o-",
-        "pan-",
-        "parad-",
-        "partial-",
-        "piko-",
-        "plenar-",
-        "poly-",
-        "post-",
-        "pre-",
-        "pro-",
-        "propp-",
-        "pseudo-",
-        "psyk-",
-        "psyko-",
-        "rea-",
-        "redox-",
-        "sam-",
-        "semi-",
-        "sexual-",
-        "socio-",
-        "special-",
-        "spicke-",
-        "spräng-",
-        "stam-",
-        "stereo-",
-        "styv-",
-        "supra-",
-        "sylvester-",
-        "sär-",
-        "tekno-",
-        "teko-",
-        "tele-",
-        "tera-",
-        "termo-",
-        "tio-",
-        "toppen-",
-        "turbo-",
-        "tve-",
-        "ultra-",
-        "undervattens-",
-        "universal-",
-        "ur-",
-        "van-",
-        "veder-",
-        "votiv-",
-        "vres-",
-        "vrål-",
-        "ytter-",
-        "zoo-",
-        "ärke-",
-        "åretrunt-",
-        "örlogs-"
-    ],
-    "preposition och adverb": [
+    "preposition och adverb": [ // TODO: Think about this
         "akterom",
         "baki",
         "bakom",
@@ -120305,6 +120068,6 @@ generateVerbs();
 generateNouns();
 generatePrepositions();
 
-//fillLexicon(); This causes major improvmenet issues
+// fillLexicon(); This causes major improvmenet issues
 
 generateSentence();
