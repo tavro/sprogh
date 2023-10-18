@@ -123281,21 +123281,215 @@ function getWordsFirstLetterData(words) {
     for(let i = 0; i < words.length; i++) {
         map[words[i][0]]++;
     }
-
+    
     return map;
+}
+
+/*
+(Verb) Word Structure
+cvccv: 790
+ccvccv: 575
+cvcv: 337
+ccvcv: 327
+cvccvccv: 267
+cvccvcv: 258
+cvcccv: 220
+vccvccv: 201
+cvcccvccv: 187
+cvcccvcv: 157
+vccvcv: 148
+cvcvcvcv: 125
+vcccvccv: 122
+cvccvcvcv: 122
+cvcvcv: 120
+ccvcccv: 113
+vcccvcv: 112
+cvcvccvcv: 104
+ccvccvcv: 98
+cvccvccvcv: 96
+cvcvccv: 91
+ccvccvccv: 86
+vccvccvcv: 76
+vccv: 70
+ccvcccvccv: 66
+vccvcvcv: 59
+ccvcccvcv: 58
+cvcvcvcvcv: 58
+ccvcvcv: 57
+cccvccv: 55
+vcvccvccv: 55
+cvccvc: 49
+vcvccvcv: 47
+cvccccvccv: 47
+cvccccvcv: 46
+cvccvcvcvcv: 46
+cvccvcccv: 45
+vccvcccv: 42
+cvccvccvccv: 40
+ccvcvcvcv: 38
+cccvcv: 37
+vcccv: 33
+vccvccvccv: 33
+vcccvcvcv: 31
+vcv: 30
+cvcvc: 29
+cvcvcvcvcvcv: 29
+vcvccv: 28
+ccvccvc: 28
+vcvcccvccv: 28
+cvcccvccvcv: 28
+vcvcvcv: 27
+cvcvcccv: 26
+ccvccccvcv: 26
+vccvcvcvcv: 26
+cvccccv: 25
+cvcccvcvcv: 25
+cvcvccvcvcv: 25
+vccccvcv: 24
+cvcccvcccv: 23
+cvcvccvccv: 23
+ccvcvccv: 22
+ccvccccvccv: 21
+cvccvcccvccv: 21
+vcvcccvcv: 20
+cvcvcccvcv: 20
+cvcvcccvccv: 20
+ccv: 19
+vcvcv: 19
+cvccvcccvcv: 19
+ccvv: 18
+vccccvccv: 18
+cvccvcvvcv: 18
+cvccvccvc: 17
+vcccvccvcv: 17
+ccvcvccvcv: 17
+vccvccvcvcv: 17
+cvcvccvccvcv: 17
+cvcvcvccv: 16
+ccvccvcvcv: 16
+cvv: 15
+cvccvcvc: 15
+vcvcvcvcv: 15
+ccvccvcccv: 15
+vccvcccvccv: 15
+vcccvcccv: 14
+vccvcccvcv: 14
+vcvccvccvcv: 14
+ccvcvcvcvcv: 14
+ccvccvccvcv: 13
+vcvccvcvcv: 13
+cvcccvcvcvcv: 13
+vccvccvccvcv: 13
+cvccvccvccvcv: 13
+cv: 12
+cvvccv: 12
+cvcvcvvcv: 12
+cvvcv: 11
+cccvcccv: 11
+cvcccvccvc: 11
+ccvcccvcvcv: 11
+vccvcvcvcvcv: 11
+vcvcvcccvccv: 11
+cvcccvccvccv: 11
+cvccvcvccv: 10
+cvcvcvccvcv: 10
+*/
+function getWordPatternData(words) {
+    var map = {};
+
+    for(let i = 0; i < words.length; i++) {
+        const w = words[i];
+        const pattern = analizeWordStructure(w);
+        if (map[pattern]) {
+            map[pattern] += 1;
+        } else {
+            map[pattern] = 1;
+        }
+    }
+
+    const filteredData = {};
+    for (const key in map) {
+        if (map.hasOwnProperty(key) && map[key] >= 10) {
+            filteredData[key] = map[key];
+        }
+    }
+
+    return filteredData;
+}
+
+const verbFirstConsonants = ["s", "f", "k", "b", "t", "p", "r", "d", "m", "g", "h", "v", "l", "n"];
+function getRandomVerbFirstConsonant() {
+    const random = Math.random();
+    const probabilities = verbFirstConsonants.map((_, index) => (verbFirstConsonants.length - index) / (verbFirstConsonants.length * (verbFirstConsonants.length + 1) / 2));
+    
+    let cumulativeProbability = 0;
+    for (let i = 0; i < probabilities.length; i++) {
+        cumulativeProbability += probabilities[i];
+        if (random < cumulativeProbability) {
+            return verbFirstConsonants[i];
+        }
+    }
+}
+
+const verbFirstVowels = ["a", "u", "i", "o", "e"]; 
+function getRandomVerbFirstVowel() {
+    const random = Math.random();
+    const probabilities = verbFirstVowels.map((_, index) => (verbFirstVowels.length - index) / (verbFirstVowels.length * (verbFirstVowels.length + 1) / 2));
+    
+    let cumulativeProbability = 0;
+    for (let i = 0; i < probabilities.length; i++) {
+        cumulativeProbability += probabilities[i];
+        if (random < cumulativeProbability) {
+            return verbFirstVowels[i];
+        }
+    }
+}
+
+const verbEnd = "a";
+function generateVerb(len) {
+    if(len <= 2) {
+        return getRandomVerbFirstConsonant() + verbEnd;
+    }
+
+    var firstLetter = "";
+    if(getRandomBoolean()) {
+        if(getRandomBoolean()) {
+            firstLetter = getRandomVerbFirstVowel();
+        }
+        else {
+            firstLetter = getRandomVerbFirstConsonant();
+        }
+    } else {
+        firstLetter = getRandomVerbFirstConsonant();
+    }
+
+    var pattern = "";
+    var patternLength = len-2;
+    while (pattern.length < patternLength) {
+        pattern += "vcc";
+    }
+    pattern = pattern.slice(0, patternLength);
+
+    var rest = generateWordByPattern(pattern);
+
+    return firstLetter + rest + verbEnd;
 }
 
 const verbAmount = 8066;
 function generateVerbs() {
-    console.log(getWordsFirstLetterData(sv["verb"]))
-    /*
+    // GENERAL INFORMATION FOR GENERATION
+    // 1) Always ends with 'a' (or language equivalent)
+    // 2) Higher change first letter is consonant than vowel
+        // If consonant: s, f, k, b, t, p, r, d, m, g, h, v, l, n
+        // If vowel: a, u, i, o, e
+    // 3) Rest of word follows pattern: vcc
+
     for(let i = 0; i < verbAmount; i++) {
         const w = sv["verb"][i];
-        //const generated = generateWordByPattern(analizeWordStructure(w));
-        //lang["verb"].push(generated);
-        //genLangToSv[generated] = w;
+        const generated = generateVerb(getRandomNumber(2, 13    ));
+        lang["verb"].push(generated);
+        genLangToSv[generated] = w;
     }
-    */
 }
 
 const nounAmount = 92753;
