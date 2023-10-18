@@ -1,4 +1,3 @@
-[ ] add swedish dictionary dataset
 [ ] add national/state emblem generator
 [ ] add country terrain generator
 [ ] religion generator
