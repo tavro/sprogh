@@ -66,6 +66,21 @@ function generateSun() {
     }
 }
 
+function generateTriangle() {
+    const triangle = document.querySelector(".triangle");
+
+    const color = getRandomBoolean() ? getRandomColorFromPalette() : getRandomHexColor();
+
+    const minWidth = 16;
+    const maxWidth = 94;
+    const randomWidth = Math.floor(Math.random() * (maxWidth - minWidth + 1)) + minWidth;
+
+    triangle.style.borderLeft = "64px solid " + color;
+    
+    triangle.style.borderLeftWidth = randomWidth + "px";
+    triangle.style.display = "block";
+}
+
 function generateFlag() {
     var genSun = getRandomBoolean();
     var flagElement = document.getElementById("flag");
@@ -89,6 +104,12 @@ function generateFlag() {
 
     if(getRandomBoolean()) {
         if(getRandomBoolean()) {
+            generateTriangle();
+        }
+    }
+
+    if(getRandomBoolean()) {
+        if(getRandomBoolean()) {
             var crossSize = "100%";
             var crossColor = getRandomBoolean() ? getRandomColorFromPalette() : getRandomHexColor();
 
@@ -98,6 +119,7 @@ function generateFlag() {
             horizontalLine.style.height = "10px";
             horizontalLine.style.position = "absolute";
             horizontalLine.style.left = "50%";
+            horizontalLine.style.zIndex = "3";
             horizontalLine.style.top = "50%";
             var perY = getRandomNumber(-100, 100);
             horizontalLine.style.transform = "translate(-50%, " + perY + "%)";
@@ -110,6 +132,7 @@ function generateFlag() {
             verticalLine.style.position = "absolute";
             verticalLine.style.left = "50%";
             verticalLine.style.top = "50%";
+            verticalLine.style.zIndex = "3";
             var perX = getRandomNumber(-300, 300);
             verticalLine.style.transform = "translate(" + perX + "%, -50%)";
             flagElement.appendChild(verticalLine);
@@ -126,6 +149,7 @@ function generateFlag() {
             circle.style.left = "50%";
             circle.style.top = "50%";
             circle.style.transform = "translate(-50%, -50%)";
+            circle.style.zIndex = "2";
             flagElement.appendChild(circle);
         }
     }

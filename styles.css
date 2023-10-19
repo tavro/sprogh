@@ -35,6 +35,27 @@ header p {
     min-height: 1px;
 }
 
+.triangle-container {
+    height: 66px;
+    width: 98px;
+    position: absolute;
+    top: 31.45px;
+    left: 1px;
+    min-height: 1px;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 32px solid transparent;
+    border-bottom: 32px solid transparent;
+    border-left: 64px solid #3498db;
+    position: absolute;
+    left: 0;
+    display: none;
+    z-index: 1;
+}
+
 .ray {
     width: 0;
     height: 0;
@@ -45,6 +66,7 @@ header p {
     left: 50%;
     transform: translateX(-50%);
     transform-origin: bottom center;
+    z-index: 3;
 }
 
 /* GUI Styling */

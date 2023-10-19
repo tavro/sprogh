@@ -32,3 +32,12 @@ function generate() {
 }
 
 generate();
+
+document.addEventListener("DOMContentLoaded", function() {
+    const triangle = document.querySelector(".triangle");
+    const minWidth = 16;
+    const maxWidth = 94;
+    const randomWidth = Math.floor(Math.random() * (maxWidth - minWidth + 1)) + minWidth;
+
+    triangle.style.borderLeftWidth = randomWidth + "px";
+});
