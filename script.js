@@ -100,6 +100,8 @@ generateFlag();
 const consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "z", "x"];
 const vowles = ["a", "e", "i", "o", "u", "y", "å", "ä", "ö"];
 
+var nounArticles = {};
+
 var nounBenders = {
     or: "",
     ar: "",
@@ -508,17 +510,92 @@ function reverseJson(jsonObj) {
     return reversedJson;
 }
 
+function getVerbBender(word, ending) { // swedish word as param
+    const bentWord = word + ending;
+    const lastLetter = bentWord[bentWord.length-1];
+    const svToGenLangDict = reverseJson(genLangToSv);
+    const genWord = svToGenLangDict[word];
+
+    if(lastLetter === "r") {
+        return verbBenders.r;
+    } else if(lastLetter === "t") {
+        if(genWord.length <= 3) {
+            return verbBenders.tt;
+        }
+        return verbBenders.t;
+    } else if(lastLetter === "e") {
+        if(genWord.length <= 3) {
+            return verbBenders.dde;
+        }
+        return verbBenders.de;
+    }
+    return "";
+}
+
+function getNounBender(word, singular, decided) { // generated language word as param
+    const lastLetter = word[word.length-1];
+    const article = nounArticles[word];
+
+    // case 1
+    if(article === "en" && lastLetter === "a") {
+        if(singular) {
+            if(decided) {
+                return nounBenders.n; // (-n)
+            }
+            else {
+                return ""; // no bending
+            }
+        }
+        else {
+            if(decided) {
+                return nounBenders.orna; // (-orna)
+            }
+            else {
+                return nounBenders.or; // (-or)
+            }
+        }
+    }
+
+    // case 2
+    // not implemented in generated language yet...
+
+    // case 3
+    // not implemented in generated language yet...
+
+    // case 4
+    if(article === "ett" && ["e", "a", "i"].includes(lastLetter)) {
+        if(singular) {
+            if(decided) {
+                return nounBenders.et; // (-et)
+            }
+            else {
+                return ""; // no bending
+            }
+        }
+        else {
+            if(decided) {
+                return nounBenders.na; // (-na)
+            }
+            else {
+                return nounBenders.n; // (-n)
+            }
+        }
+    }
+
+    return "";
+}
+
 function generateSentence() { // TODO: Implement support more general sentences and bending
     const pronomenToUse = getRandomElement(sv["pronomen"]);
     const verbToUse = getRandomElement(sv["verb"]);
-    const verbEnding = getRandomElement(["r", "de"]);
+    const verbEnding = getRandomElement(["r", "t", "de"]);
     const prepositionToUse = getRandomElement(sv["preposition"]);
     const nounToUse = getRandomElement(sv["subst"]);
-    const nounEnding = getRandomElement(["n", "er"]);
+    const nounEnding = getRandomElement(["", "en", "er"]);
 
     const reversedDictionary = reverseJson(genLangToSv);
     setElement("original", pronomenToUse + " " + verbToUse + verbEnding + " " + prepositionToUse + " " + nounToUse + nounEnding);
-    setElement("generated", nominativPronouns[pronomenToUse] + " " + reversedDictionary[verbToUse] + verbBenders[verbEnding] + " " + reversedDictionary[prepositionToUse] + " " + reversedDictionary[nounToUse] + nounBenders[nounEnding]);
+    setElement("generated", nominativPronouns[pronomenToUse] + " " + reversedDictionary[verbToUse] + getVerbBender(verbToUse, verbEnding) + " " + reversedDictionary[prepositionToUse] + " " + reversedDictionary[nounToUse] + getNounBender(reversedDictionary[nounToUse], true, false));
 }
 
 var lang = { 
@@ -120001,6 +120078,7 @@ function generateNouns() {
         while(genLangToSv.hasOwnProperty(generated)) {
             generated = generateNoun(getRandomNumber(3, 17));
         }
+        nounArticles[generated] = getRandomElement(["en", "ett"]);
 
         lang["subst"].push(generated);
         genLangToSv[generated] = w;

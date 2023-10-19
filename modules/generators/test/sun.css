@@ -1,0 +1,17 @@
+#sun {
+  height: 200px;
+  position: relative;
+}
+
+.ray {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 75px solid #ffcc00;
+  position: absolute;
+  bottom: 0; /* Set the ray's pivot point to the bottom */
+  left: 50%;
+  transform: translateX(-50%); /* Center the ray horizontally */
+  transform-origin: bottom center;
+}
