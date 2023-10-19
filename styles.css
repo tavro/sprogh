@@ -21,6 +21,32 @@ header p {
     margin: 0;
 }
 
+/* Flag styling */
+.lang-meta {
+    position: relative;
+}
+
+#sun {
+    height: 66px;
+    width: 98px;
+    position: absolute;
+    top: 30.45px;
+    left: 0;
+    min-height: 1px;
+}
+
+.ray {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: bottom center;
+}
+
 /* GUI Styling */
 
 :root {
