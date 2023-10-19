@@ -1,3 +1,5 @@
+// Realization:::::::::::::::: "Undefined"-bug in sentence generation is because there are duplicate words in generated language
+// TODO: make sure there cannot be duplicate words
 function setElement(id, value) {
     var element = document.getElementById(id);
     if (element) {
@@ -512,10 +514,11 @@ function generateSentence() { // TODO: Implement support more general sentences 
     const verbEnding = getRandomElement(["r", "de"]);
     const prepositionToUse = getRandomElement(sv["preposition"]);
     const nounToUse = getRandomElement(sv["subst"]);
-    const nounEnding = getRandomElement(["en", "er"]);
+    const nounEnding = getRandomElement(["n", "er"]);
 
+    const reversedDictionary = reverseJson(genLangToSv);
     setElement("original", pronomenToUse + " " + verbToUse + verbEnding + " " + prepositionToUse + " " + nounToUse + nounEnding);
-    setElement("generated", nominativPronouns[pronomenToUse] + " " + reverseJson(genLangToSv)[verbToUse] + verbBenders[verbEnding] + " " + reverseJson(genLangToSv)[prepositionToUse] + " " + reverseJson(genLangToSv)[nounToUse] + nounBenders[nounEnding]);
+    setElement("generated", nominativPronouns[pronomenToUse] + " " + reversedDictionary[verbToUse] + verbBenders[verbEnding] + " " + reversedDictionary[prepositionToUse] + " " + reversedDictionary[nounToUse] + nounBenders[nounEnding]);
 }
 
 var lang = { 
@@ -119948,7 +119951,13 @@ function generateVerbs() {
 
     for(let i = 0; i < verbAmount; i++) {
         const w = sv["verb"][i];
-        const generated = generateVerb(getRandomNumber(2, 10));
+        var generated = generateVerb(getRandomNumber(2, 10));
+        
+        // Ensure there are no duplicate words
+        while(genLangToSv.hasOwnProperty(generated)) {
+            generated = generateVerb(getRandomNumber(2, 10));
+        }
+
         lang["verb"].push(generated);
         genLangToSv[generated] = w;
     }
@@ -119982,11 +119991,17 @@ function generateNoun(len) {
     return firstLetter + rest + lastLetter;
 }
 
-const nounAmount = 92753;
+const nounAmount = 92753; // (this is just to much performance-wise)
 function generateNouns() {
     for(let i = 0; i < nounAmount; i++) {
         const w = sv["subst"][i];
-        const generated = generateNoun(getRandomNumber(3, 17));
+        var generated = generateNoun(getRandomNumber(3, 17));
+
+        // Ensure there are no duplicate words
+        while(genLangToSv.hasOwnProperty(generated)) {
+            generated = generateNoun(getRandomNumber(3, 17));
+        }
+
         lang["subst"].push(generated);
         genLangToSv[generated] = w;
     }
@@ -120029,7 +120044,13 @@ function generatePrepositions() {
 
     for(let i = 0; i < sv["preposition"].length; i++) {
         const w = sv["preposition"][i];
-        const generated = generatePreposition(getRandomNumber(1, 7));
+        var generated = generatePreposition(getRandomNumber(1, 7));
+
+        // Ensure there are no duplicate words
+        while(genLangToSv.hasOwnProperty(generated)) {
+            generated = generatePreposition(getRandomNumber(1, 7));
+        }
+
         lang["preposition"].push(generated);
         genLangToSv[generated] = w;
     }
