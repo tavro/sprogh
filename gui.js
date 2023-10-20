@@ -7,6 +7,13 @@ const overviewContent = document.getElementById("overviewContent");
 const dictionaryTab = document.getElementById("dictionaryTab");
 const dictionaryContent = document.getElementById("dictionaryContent");
 
+const collapseButton = document.getElementById("collapseButton");
+collapseButton.addEventListener("click", function() {
+    const collapsable = document.getElementById("collapsable");
+    collapsable.style.display = collapsable.style.display === "block" ? "none" : "block";
+    collapseButton.innerHTML = collapseButton.innerHTML === "_" ? "■" : "_";
+});
+
 grammarTab.addEventListener("click", function() {
     overviewContent.style.display = "none";
     dictionaryContent.style.display = "none";

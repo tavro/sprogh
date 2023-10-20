@@ -86,13 +86,13 @@ header p {
 #options {
     display: block; 
     width: 300px;
-    position: absolute;
     font-family: var(--monospace);
     border: solid 1px var(--dark-solid);
     margin: 10px;
     padding-bottom: 0.3em;
     background: var(--bg-light);
     font-size: 10px;
+    float: left;
 }
 
 .tab {
@@ -131,4 +131,33 @@ button.active {
     color: #1d1b1c;
     font-weight: bold;
     text-decoration: underline;
+}
+
+.options-header {
+    background-color: var(--header-hover);
+    border-bottom: 1px solid var(--dark-solid);
+    padding: 0.4em 1em;
+    display: flex;
+    cursor: move;
+}
+
+.options-header h1 {
+    font-size: 16px;
+    margin: 0.1em 0;
+    white-space: nowrap;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.options-header button {
+    width: 2.5em;
+    height: 2.5em;
+    margin-left: 2px;
+    margin-right: 2px;
+    color: black;
+    background: none;
+    font-size: 0.75em;
+    border: 1px solid black;
+    cursor: pointer;
 }

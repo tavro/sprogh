@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>currency</title>
+    <link rel="stylesheet" href="currency.css">
+</head>
+
+<body>
+    <div id="coin">
+        <div id="coin-inner">
+            <p id="coin-value" class="glowing-text">1</p>
+        </div>
+    </div>
+    <svg width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <path id="circlePath" d="M 64,64 m -50,0 a 50,50 0 1,0 100,0 a 50,50 0 1,0 -100,0" />
+        </defs>
+        <text>
+            <textPath href="#circlePath" id="curved-text">Curved Text Here</textPath>
+        </text>
+    </svg>
+    <script src="currency.js"></script>
+</body>
+
+</html>
