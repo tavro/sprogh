@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    background: linear-gradient(to right, rgb(97, 73, 84), rgba(164, 139, 151, 0.95));
+    background: linear-gradient(to right, var(--dark-solid), var(--header-hover));
     color: white;
     text-align: center;
     padding: 1em 0;
@@ -69,15 +69,22 @@ header p {
     z-index: 3;
 }
 
+/* Country  styling */
+
+#countryCanvas {
+    border: 2px solid #000;
+    background-color: #cceeff;
+}
+
 /* GUI Styling */
 
 :root {
-    --header: rgb(146, 110, 127);
-    --header-hover: rgb(129, 97, 112);
-    --bg-main: rgba(153, 119, 135, 0.95);
-    --bg-light: rgba(164, 139, 151, 0.95);
-    --dark-solid: rgb(97, 73, 84);
-  
+    --header: rgba(55, 55, 55, 1);
+    --header-hover: rgba(90, 90, 90, 1);
+    --bg-main: rgba(255, 255, 255, 1);
+    --bg-light: rgba(240, 240, 240, 1);
+    --dark-solid: rgba(30, 30, 30, 1);
+
     --monospace: Consolas, monospace;
     --serif: Georgia, serif;
     --sans-serif: Helvetica, Arial, sans-serif;

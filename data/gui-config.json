@@ -1,0 +1,9 @@
+{
+    "colors": {
+        "header": "rgba(55, 55, 55, 1)",
+        "header-hover": "rgba(90, 90, 90, 1)",
+        "bg-main": "rgba(255, 255, 255, 1)",
+        "bg-light": "rgba(240, 240, 240, 1)",
+        "dark-solid": "rgba(30, 30, 30, 1)"
+    }
+}

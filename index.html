@@ -359,34 +359,42 @@
                 </div>
             </div>
         </div>
-        <div id="options" style="display: block; width: 300px;">
+        <div id="options" style="display: block; width: 350px;">
             <div class="options-header">
                 <h1>landgenerator</h1>
                 <button type="button">_</button>
                 <button type="button">✕</button>
             </div>
             <div class="tab">
-                <button id="" class="options active">Översikt</button>
-                <button id="" class="options">Invånare</button>
-                <button id="" class="options">Ekonomi</button>
-                <button id="" class="options">Kultur</button>
-                <button id="" class="options">Geografi</button>
+                <button id="cOverviewTab" class="options active">Översikt</button>
+                <button id="cPopulationTab" class="options">Befolkning</button>
+                <button id="cEconomyTab" class="options">Ekonomi</button>
+                <button id="cCultureTab" class="options">Kultur</button>
+                <button id="cGeografyTab" class="options">Geografi</button>
             </div>
             
-            <div id="" class="tabcontent" style="display: block;">
-                <p>Detta är placeholder-text 1</p>
+            <div id="c-overview" class="tabcontent" style="display: block;">
+                <h2>landnamn</h2>
+
+                <canvas id="countryCanvas" width="156" height="156"></canvas>
+
+                <p id="co-lang"><b>Officiellt språk: </b></p>
+                <p id="co-population"><b>Befolkning: </b></p>
+                <p id="co-area"><b>Yta: </b></p>
+                <p id="co-economy"><b>Pengar: </b></p>
+                <p id="co-currency"><b>Valuta: </b></p>
             </div>
-            <div id="" class="tabcontent" style="display: none;">
-                <p>Detta är placeholder-text 2</p>
+            <div id="c-population" class="tabcontent" style="display: none;">
+                <p>10-30 invånare per km<sup>2</sup></p>
             </div>
-            <div id="" class="tabcontent" style="display: none;">
-                <p>Detta är placeholder-text 3</p>
+            <div id="c-economy" class="tabcontent" style="display: none;">
+                <p>Sträcker sig mellan 0 och 150 000 miljard dollar</p>
             </div>
-            <div id="" class="tabcontent" style="display: none;">
-                <p>Detta är placeholder-text 4</p>
+            <div id="c-culture" class="tabcontent" style="display: none;">
+                <p>Musik, konst, mat, etc...</p>
             </div>
-            <div id="" class="tabcontent" style="display: none;">
-                <p>Detta är placeholder-text 5</p>
+            <div id="c-geografy" class="tabcontent" style="display: none;">
+                <p>Sträcker sig mellan 2 och 17 100 000 km2</p>
             </div>
         </div>
         <div id="options" style="display: block; width: 300px;">
@@ -411,15 +419,12 @@
                 </p>
             </div>
             <div id="changelogContent" class="tabcontent" style="display: none;">
-                <p>
-                    <p><b>v 0.0.1:</b></p>
-                    <div> • implement GUI</div>
-                </p>
             </div>
         </div>
     </main>
     
     <script src="modules/generators/flag-gen.js"></script>
+    <script src="modules/generators/country-gen.js"></script>
     <script src="script.js"></script>
     <script src="gui.js"></script>
 </body>

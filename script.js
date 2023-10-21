@@ -221,6 +221,7 @@ function generateLanguageName(syllableAmount) { // TODO: Optimize
     }
 
     const langName = name + "iska";
+    document.getElementById("co-lang").innerHTML += langName;
     setElement("name", langName);
     setElement("name2", langName);
     setElement("name3", langName);
