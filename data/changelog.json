@@ -6,6 +6,7 @@
         "implement country shape generator"
     ],
     "0.0.2": [
-        "add support for custom configuration of GUI"
+        "add support for custom configuration of GUI",
+        "make GUI windows movable"
     ]
 }

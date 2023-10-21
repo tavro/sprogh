@@ -93,13 +93,13 @@ header p {
 #options {
     display: block; 
     width: 300px;
+    position: absolute;
     font-family: var(--monospace);
     border: solid 1px var(--dark-solid);
     margin: 10px;
     padding-bottom: 0.3em;
     background: var(--bg-light);
     font-size: 10px;
-    float: left;
 }
 
 .tab {
@@ -155,6 +155,7 @@ button.active {
     width: 90%;
     overflow: hidden;
     text-overflow: ellipsis;
+    user-select: none;
 }
 
 .options-header button {

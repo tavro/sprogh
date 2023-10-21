@@ -173,7 +173,8 @@ changelogTab.addEventListener("click", function() {
 
 const changeLog = {
     "0.0.2": [
-        "add support for custom configuration of GUI"
+        "add support for custom configuration of GUI",
+        "make GUI windows movable"
     ],
     "0.0.1": [
         "implement changelog system",
@@ -195,3 +196,30 @@ function updateChangelogTab() {
     }
 }
 updateChangelogTab();
+
+document.addEventListener("DOMContentLoaded", function() {
+    var optionsHeader = document.getElementById('oh1');
+    var movableDiv = document.querySelector('.movable');
+
+    var offsetX, offsetY, isDragging = false;
+
+    optionsHeader.addEventListener('mousedown', function(e) {
+        offsetX = e.clientX - movableDiv.getBoundingClientRect().left;
+        offsetY = e.clientY - movableDiv.getBoundingClientRect().top;
+        isDragging = true;
+    });
+
+    document.addEventListener('mousemove', function(e) {
+        if (isDragging) {
+            var newX = e.clientX - offsetX;
+            var newY = e.clientY - offsetY;
+
+            movableDiv.style.left = newX + 'px';
+            movableDiv.style.top = newY + 'px';
+        }
+    });
+
+    document.addEventListener('mouseup', function() {
+        isDragging = false;
+    });
+});
