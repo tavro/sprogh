@@ -177,7 +177,8 @@ changelogTab.addEventListener("click", function() {
 
 const changeLog = {
     "0.0.3": [
-        "add voronoi terrain generation"
+        "add voronoi terrain generation",
+        "make it possible to select country"
     ],
     "0.0.2": [
         "add support for custom configuration of GUI",

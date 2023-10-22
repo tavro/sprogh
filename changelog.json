@@ -10,6 +10,7 @@
         "make GUI windows movable"
     ],
     "0.0.3": [
-        "add voronoi terrain generation"
+        "add voronoi terrain generation",
+        "make it possible to select country"
     ]
 }

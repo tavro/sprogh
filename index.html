@@ -9,21 +9,10 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="counter">
-            <span id="date"></span>
-        </div>
-        <div class="buttons">
-            <button id="startBtn">Start</button>
-            <button id="pauseBtn" disabled>Pause</button>
-            <button id="fastForwardBtn" disabled>Fast Forward</button>
-        </div>
-    </div>
-
     <canvas id="terrainCanvas"></canvas>
 
     <main>
-        <div id="options" class="movable3" style="display: block; width: 300px; max-height: 600px; top:0; left:0; overflow-y: scroll;">
+        <div id="lang-window" class="options movable3" style="display: none; width: 300px; max-height: 600px; top:0; left:0; overflow-y: scroll;">
             <div class="options-header" id="oh3">
                 <h1>språkgenerator</h1>
                 <button type="button" id="collapseButton1">_</button>
@@ -31,9 +20,9 @@
             </div>
             <div id="collapsable1" style="display: block;">
                 <div class="tab">
-                    <button id="overviewTab" class="options active">Översikt</button>
-                    <button id="grammarTab" class="options">Grammatik</button>
-                    <button id="dictionaryTab" class="options">Lexikon</button>
+                    <button id="overviewTab" class="optionsbtn active">Översikt</button>
+                    <button id="grammarTab" class="optionsbtn">Grammatik</button>
+                    <button id="dictionaryTab" class="optionsbtn">Lexikon</button>
                 </div>
                 
                 <div id="overviewContent" class="tabcontent" style="display: block;">
@@ -367,7 +356,7 @@
                 </div>
             </div>
         </div>
-        <div id="options" class="movable2" style="display: block; width: 350px; top: 512px; left: 400px;">
+        <div id="land-window" class="options movable2" style="display: none; width: 350px; top: 512px; left: 400px;">
             <div class="options-header" id="oh2">
                 <h1>landgenerator</h1>
                 <button type="button" id="collapseButton2">_</button>
@@ -375,11 +364,11 @@
             </div>
             <div id="collapsable2" style="display: block;">
                 <div class="tab">
-                    <button id="cOverviewTab" class="options active">Översikt</button>
-                    <button id="cPopulationTab" class="options">Befolkning</button>
-                    <button id="cEconomyTab" class="options">Ekonomi</button>
-                    <button id="cCultureTab" class="options">Kultur</button>
-                    <button id="cGeografyTab" class="options">Geografi</button>
+                    <button id="cOverviewTab" class="optionsbtn active">Översikt</button>
+                    <button id="cPopulationTab" class="optionsbtn">Befolkning</button>
+                    <button id="cEconomyTab" class="optionsbtn">Ekonomi</button>
+                    <button id="cCultureTab" class="optionsbtn">Kultur</button>
+                    <button id="cGeografyTab" class="optionsbtn">Geografi</button>
                 </div>
                 
                 <div id="c-overview" class="tabcontent" style="display: block;">
@@ -407,7 +396,7 @@
                 </div>
             </div>
         </div>
-        <div id="options" class="movable1" style="display: block; width: 300px; top: 128px; left: 400px;">
+        <div class="options movable1" style="display: block; width: 300px; top: 128px; left: 400px;">
             <div class="options-header" id="oh1">
                 <h1>program information</h1>
                 <button type="button" id="collapseButton3">_</button>
@@ -415,8 +404,10 @@
             </div>
             <div id="collapsable3" style="display: block;">
                 <div class="tab">
-                    <button id="changelogTab" class="options">Changelog</button>
-                    <button id="aboutTab" class="options active">About</button>
+                    <button id="configTab" class="optionsbtn">Settings</button>
+                    <button id="tutorialTab" class="optionsbtn">Tutorial</button>
+                    <button id="changelogTab" class="optionsbtn">Changelog</button>
+                    <button id="aboutTab" class="optionsbtn active">About</button>
                 </div>
                 
                 <div id="aboutContent" class="tabcontent" style="display: block;">
@@ -430,6 +421,23 @@
                     </p>
                 </div>
                 <div id="changelogContent" class="tabcontent" style="display: none;">
+                </div>
+            </div>
+        </div>
+        <div id="game-window" class="options" style="display: none; width: 300px; bottom: 0; left: 0;">
+            <div class="options-header">
+                <h1>game</h1>
+            </div>
+            <div style="display: block;">
+                <div class="tabcontent" style="display: block;">
+                    <div class="counter">
+                        <span id="date"></span>
+                    </div>
+                    <div class="buttons">
+                        <button id="startBtn">▶</button>
+                        <button id="pauseBtn" disabled>▌▌</button>
+                        <button id="fastForwardBtn" disabled>▶▶</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: var(--dark-solid);
 }
 
 /* Flag styling */
@@ -73,7 +74,7 @@ body {
     --sans-serif: Helvetica, Arial, sans-serif;
 }
 
-#options {
+.options {
     display: block; 
     width: 300px;
     position: absolute;
@@ -92,7 +93,7 @@ body {
     justify-content: space-between;
 }
 
-button.options {
+button.optionsbtn {
     width: 100%;
     background-color: var(--bg-main);
     font-weight: bold;
@@ -100,7 +101,7 @@ button.options {
     transition: 0.2s;
 }
 
-button.options:hover {
+button.optionsbtn:hover {
     background-color: var(--header-hover);
     color: white;
 }
@@ -155,24 +156,15 @@ button.active {
 
 /* Date counter styling */
 
-.container {
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
 .counter {
   font-size: 24px;
-  margin-bottom: 20px;
 }
 
 .buttons button {
-  font-size: 16px;
-  margin: 5px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+  font-size: 12px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
   cursor: pointer;
 }
 
