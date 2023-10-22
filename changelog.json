@@ -8,5 +8,8 @@
     "0.0.2": [
         "add support for custom configuration of GUI",
         "make GUI windows movable"
+    ],
+    "0.0.3": [
+        "add voronoi terrain generation"
     ]
 }

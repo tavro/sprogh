@@ -28,12 +28,16 @@ const overviewContent = document.getElementById("overviewContent");
 const dictionaryTab = document.getElementById("dictionaryTab");
 const dictionaryContent = document.getElementById("dictionaryContent");
 
-const collapseButton = document.getElementById("collapseButton");
-collapseButton.addEventListener("click", function() {
-    const collapsable = document.getElementById("collapsable");
-    collapsable.style.display = collapsable.style.display === "block" ? "none" : "block";
-    collapseButton.innerHTML = collapseButton.innerHTML === "_" ? "■" : "_";
-});
+for(let i = 0; i < 3; i++) {
+    const id = "collapseButton" + (i + 1);
+    const collapseButton = document.getElementById(id);
+    collapseButton.addEventListener("click", function() {
+        const id2 = "collapsable" + (i + 1);
+        const collapsable = document.getElementById(id2);
+        collapsable.style.display = collapsable.style.display === "block" ? "none" : "block";
+        collapseButton.innerHTML = collapseButton.innerHTML === "_" ? "■" : "_";
+    });
+}
 
 grammarTab.addEventListener("click", function() {
     overviewContent.style.display = "none";
@@ -172,6 +176,9 @@ changelogTab.addEventListener("click", function() {
 });
 
 const changeLog = {
+    "0.0.3": [
+        "add voronoi terrain generation"
+    ],
     "0.0.2": [
         "add support for custom configuration of GUI",
         "make GUI windows movable"
@@ -197,29 +204,33 @@ function updateChangelogTab() {
 }
 updateChangelogTab();
 
-document.addEventListener("DOMContentLoaded", function() {
-    var optionsHeader = document.getElementById('oh1');
-    var movableDiv = document.querySelector('.movable');
+for(let i = 0; i < 3; i++) {
+    document.addEventListener("DOMContentLoaded", function() {
+        const id = "oh" + (i+1);
+        var optionsHeader = document.getElementById(id);
+        const cl = '.movable' + (i+1);
+        var movableDiv = document.querySelector(cl);
 
-    var offsetX, offsetY, isDragging = false;
+        var offsetX, offsetY, isDragging = false;
 
-    optionsHeader.addEventListener('mousedown', function(e) {
-        offsetX = e.clientX - movableDiv.getBoundingClientRect().left;
-        offsetY = e.clientY - movableDiv.getBoundingClientRect().top;
-        isDragging = true;
+        optionsHeader.addEventListener('mousedown', function(e) {
+            offsetX = e.clientX - movableDiv.getBoundingClientRect().left;
+            offsetY = e.clientY - movableDiv.getBoundingClientRect().top;
+            isDragging = true;
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+                var newX = e.clientX - offsetX;
+                var newY = e.clientY - offsetY;
+
+                movableDiv.style.left = newX + 'px';
+                movableDiv.style.top = newY + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+        });
     });
-
-    document.addEventListener('mousemove', function(e) {
-        if (isDragging) {
-            var newX = e.clientX - offsetX;
-            var newY = e.clientY - offsetY;
-
-            movableDiv.style.left = newX + 'px';
-            movableDiv.style.top = newY + 'px';
-        }
-    });
-
-    document.addEventListener('mouseup', function() {
-        isDragging = false;
-    });
-});
+}

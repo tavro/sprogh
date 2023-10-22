@@ -4,23 +4,6 @@ body {
     padding: 0;
 }
 
-header {
-    background: linear-gradient(to right, var(--dark-solid), var(--header-hover));
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-header p {
-    font-size: 1.2em;
-    margin: 0;
-}
-
 /* Flag styling */
 .lang-meta {
     position: relative;
@@ -168,4 +151,37 @@ button.active {
     font-size: 0.75em;
     border: 1px solid black;
     cursor: pointer;
+}
+
+/* Date counter styling */
+
+.container {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.counter {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.buttons button {
+  font-size: 16px;
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Terrain styling */
+#terrainCanvas {
+    display: block;
 }

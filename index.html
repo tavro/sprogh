@@ -9,19 +9,27 @@
 </head>
 
 <body>
-    <header>
-        <h1>sprogh</h1>
-        <p>en kulturell samling av generatorer</p>
-    </header>
+    <div class="container">
+        <div class="counter">
+            <span id="date"></span>
+        </div>
+        <div class="buttons">
+            <button id="startBtn">Start</button>
+            <button id="pauseBtn" disabled>Pause</button>
+            <button id="fastForwardBtn" disabled>Fast Forward</button>
+        </div>
+    </div>
+
+    <canvas id="terrainCanvas"></canvas>
 
     <main>
-        <div id="options" style="display: block; width: 300px; max-height: 600px; overflow-y: scroll;">
-            <div class="options-header">
+        <div id="options" class="movable3" style="display: block; width: 300px; max-height: 600px; top:0; left:0; overflow-y: scroll;">
+            <div class="options-header" id="oh3">
                 <h1>språkgenerator</h1>
-                <button type="button" id="collapseButton">_</button>
+                <button type="button" id="collapseButton1">_</button>
                 <button type="button">✕</button>
             </div>
-            <div id="collapsable" style="display: block;">
+            <div id="collapsable1" style="display: block;">
                 <div class="tab">
                     <button id="overviewTab" class="options active">Översikt</button>
                     <button id="grammarTab" class="options">Grammatik</button>
@@ -359,74 +367,83 @@
                 </div>
             </div>
         </div>
-        <div id="options" style="display: block; width: 350px; top: 512px; left: 400px;">
-            <div class="options-header">
+        <div id="options" class="movable2" style="display: block; width: 350px; top: 512px; left: 400px;">
+            <div class="options-header" id="oh2">
                 <h1>landgenerator</h1>
-                <button type="button">_</button>
+                <button type="button" id="collapseButton2">_</button>
                 <button type="button">✕</button>
             </div>
-            <div class="tab">
-                <button id="cOverviewTab" class="options active">Översikt</button>
-                <button id="cPopulationTab" class="options">Befolkning</button>
-                <button id="cEconomyTab" class="options">Ekonomi</button>
-                <button id="cCultureTab" class="options">Kultur</button>
-                <button id="cGeografyTab" class="options">Geografi</button>
-            </div>
-            
-            <div id="c-overview" class="tabcontent" style="display: block;">
-                <h2>landnamn</h2>
+            <div id="collapsable2" style="display: block;">
+                <div class="tab">
+                    <button id="cOverviewTab" class="options active">Översikt</button>
+                    <button id="cPopulationTab" class="options">Befolkning</button>
+                    <button id="cEconomyTab" class="options">Ekonomi</button>
+                    <button id="cCultureTab" class="options">Kultur</button>
+                    <button id="cGeografyTab" class="options">Geografi</button>
+                </div>
+                
+                <div id="c-overview" class="tabcontent" style="display: block;">
+                    <h2>landnamn</h2>
 
-                <canvas id="countryCanvas" width="156" height="156"></canvas>
+                    <canvas id="countryCanvas" width="156" height="156"></canvas>
 
-                <p id="co-lang"><b>Officiellt språk: </b></p>
-                <p id="co-population"><b>Befolkning: </b></p>
-                <p id="co-area"><b>Yta: </b></p>
-                <p id="co-economy"><b>Pengar: </b></p>
-                <p id="co-currency"><b>Valuta: </b></p>
-            </div>
-            <div id="c-population" class="tabcontent" style="display: none;">
-                <p>10-30 invånare per km<sup>2</sup></p>
-            </div>
-            <div id="c-economy" class="tabcontent" style="display: none;">
-                <p>Sträcker sig mellan 0 och 150 000 miljard dollar</p>
-            </div>
-            <div id="c-culture" class="tabcontent" style="display: none;">
-                <p>Musik, konst, mat, etc...</p>
-            </div>
-            <div id="c-geografy" class="tabcontent" style="display: none;">
-                <p>Sträcker sig mellan 2 och 17 100 000 km2</p>
+                    <p id="co-lang"><b>Officiellt språk: </b></p>
+                    <p id="co-population"><b>Befolkning: </b></p>
+                    <p id="co-area"><b>Yta: </b></p>
+                    <p id="co-economy"><b>Pengar: </b></p>
+                    <p id="co-currency"><b>Valuta: </b></p>
+                </div>
+                <div id="c-population" class="tabcontent" style="display: none;">
+                    <p>10-30 invånare per km<sup>2</sup></p>
+                </div>
+                <div id="c-economy" class="tabcontent" style="display: none;">
+                    <p>Sträcker sig mellan 0 och 150 000 miljard dollar</p>
+                </div>
+                <div id="c-culture" class="tabcontent" style="display: none;">
+                    <p>Musik, konst, mat, etc...</p>
+                </div>
+                <div id="c-geografy" class="tabcontent" style="display: none;">
+                    <p>Sträcker sig mellan 2 och 17 100 000 km2</p>
+                </div>
             </div>
         </div>
-        <div id="options" class="movable" style="display: block; width: 300px; top: 128px; left: 400px;">
+        <div id="options" class="movable1" style="display: block; width: 300px; top: 128px; left: 400px;">
             <div class="options-header" id="oh1">
                 <h1>program information</h1>
-                <button type="button">_</button>
+                <button type="button" id="collapseButton3">_</button>
                 <button type="button">✕</button>
             </div>
-            <div class="tab">
-                <button id="changelogTab" class="options">Changelog</button>
-                <button id="aboutTab" class="options active">About</button>
-            </div>
-            
-            <div id="aboutContent" class="tabcontent" style="display: block;">
-                <p>
-                    <a href="https://github.com/tavro/sprogh" target="_blank">Sprogh</a> is a free open source tool by tavro.
-                </p>
-                <p>
-                    The project is under active development. Creator and maintainer: <a href="https://github.com/tavro" target="_blank">tavro</a>. For older
-                    versions see the changelog.
-                    Please report bugs by contacting me directly via <a href="mailto:isakhorvath@gmail.com" target="_blank">email</a>.
-                </p>
-            </div>
-            <div id="changelogContent" class="tabcontent" style="display: none;">
+            <div id="collapsable3" style="display: block;">
+                <div class="tab">
+                    <button id="changelogTab" class="options">Changelog</button>
+                    <button id="aboutTab" class="options active">About</button>
+                </div>
+                
+                <div id="aboutContent" class="tabcontent" style="display: block;">
+                    <p>
+                        <a href="https://github.com/tavro/sprogh" target="_blank">Sprogh</a> is a free open source tool by tavro.
+                    </p>
+                    <p>
+                        The project is under active development. Creator and maintainer: <a href="https://github.com/tavro" target="_blank">tavro</a>. For older
+                        versions see the changelog.
+                        Please report bugs by contacting me directly via <a href="mailto:isakhorvath@gmail.com" target="_blank">email</a>.
+                    </p>
+                </div>
+                <div id="changelogContent" class="tabcontent" style="display: none;">
+                </div>
             </div>
         </div>
     </main>
     
+    <!--<script src="modules/utils/"></script>-->
+    <script src="modules/counter/counter.js"></script>
     <script src="modules/generators/flag-gen.js"></script>
     <script src="modules/generators/country-gen.js"></script>
-    <script src="script.js"></script>
-    <script src="gui.js"></script>
+    <script src="modules/language/script.js"></script>
+    <script src="modules/gui/gui.js"></script>
+    <script src="lib/voronoi.min.js"></script>
+    <script src="modules/generators/terrain-gen.js"></script>
+
 </body>
 
 </html>
