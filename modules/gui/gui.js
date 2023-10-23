@@ -19,14 +19,36 @@ const colors = {
 
 addCSSVariables(colors);
 
-const grammarTab = document.getElementById("grammarTab");
-const grammarContent = document.getElementById("grammarContent");
+function showTab(tab, content, prefixes) {
+    for(let i = 0; i < prefixes.length; i++) {
+        const tabId = prefixes[i] + "Tab";
+        const tabElement = document.getElementById(tabId);
+        const contentId = prefixes[i] + "Content";
+        const contentElement = document.getElementById(contentId);
 
-const overviewTab = document.getElementById("overviewTab");
-const overviewContent = document.getElementById("overviewContent");
+        contentElement.style.display = "none";
+        tabElement.classList.remove("active");
+    }
 
-const dictionaryTab = document.getElementById("dictionaryTab");
-const dictionaryContent = document.getElementById("dictionaryContent");
+    content.style.display = "block";
+    tab.classList.add("active");
+}
+
+function addWindowListener(prefixes) {
+    for(let i = 0; i < prefixes.length; i++) {
+        const tabId = prefixes[i] + "Tab";
+        const tabElement = document.getElementById(tabId);
+        const contentId = prefixes[i] + "Content";
+        const contentElement = document.getElementById(contentId);
+        tabElement.addEventListener("click", function() {
+            showTab(tabElement, contentElement, prefixes);
+        });
+    }
+}
+
+addWindowListener(["grammar", "overview", "dictionary"]);
+addWindowListener(["cOverview", "cPopulation", "cEconomy", "cCulture", "cGeografy"]);
+addWindowListener(["about", "changelog", "tutorial"]);
 
 for(let i = 0; i < 3; i++) {
     const id = "collapseButton" + (i + 1);
@@ -39,143 +61,10 @@ for(let i = 0; i < 3; i++) {
     });
 }
 
-grammarTab.addEventListener("click", function() {
-    overviewContent.style.display = "none";
-    dictionaryContent.style.display = "none";
-    grammarContent.style.display = "block";
-
-    overviewTab.classList.remove("active");
-    dictionaryTab.classList.remove("active");
-    grammarTab.classList.add("active");
-});
-
-overviewTab.addEventListener("click", function() {
-    grammarContent.style.display = "none";
-    dictionaryContent.style.display = "none";
-    overviewContent.style.display = "block";
-
-    grammarTab.classList.remove("active");
-    dictionaryTab.classList.remove("active");
-    overviewTab.classList.add("active");
-});
-
-dictionaryTab.addEventListener("click", function() {
-    overviewContent.style.display = "none";
-    grammarContent.style.display = "none";
-    dictionaryContent.style.display = "block";
-
-    overviewTab.classList.remove("active");
-    grammarTab.classList.remove("active");
-    dictionaryTab.classList.add("active");
-});
-
-const cOverviewTab = document.getElementById("cOverviewTab");
-const cOverview = document.getElementById("c-overview");
-
-const cPopulationTab = document.getElementById("cPopulationTab");
-const cPopulation = document.getElementById("c-population");
-
-const cEconomyTab = document.getElementById("cEconomyTab");
-const cEconomy = document.getElementById("c-economy");
-
-const cCultureTab = document.getElementById("cCultureTab");
-const cCulture = document.getElementById("c-culture");
-
-const cGeografyTab = document.getElementById("cGeografyTab");
-const cGeografy = document.getElementById("c-geografy");
-
-cOverviewTab.addEventListener("click", function() {
-    cGeografy.style.display = "none";
-    cCulture.style.display = "none";
-    cEconomy.style.display = "none";
-    cPopulation.style.display = "none";
-    cOverview.style.display = "block";
-
-    cGeografyTab.classList.remove("active");
-    cCultureTab.classList.remove("active");
-    cEconomyTab.classList.remove("active");
-    cPopulationTab.classList.remove("active");
-    cOverviewTab.classList.add("active");
-});
-
-cPopulationTab.addEventListener("click", function() {
-    cGeografy.style.display = "none";
-    cCulture.style.display = "none";
-    cEconomy.style.display = "none";
-    cPopulation.style.display = "block";
-    cOverview.style.display = "none";
-
-    cGeografyTab.classList.remove("active");
-    cCultureTab.classList.remove("active");
-    cEconomyTab.classList.remove("active");
-    cPopulationTab.classList.add("active");
-    cOverviewTab.classList.remove("active");
-});
-
-cEconomyTab.addEventListener("click", function() {
-    cGeografy.style.display = "none";
-    cCulture.style.display = "none";
-    cEconomy.style.display = "block";
-    cPopulation.style.display = "none";
-    cOverview.style.display = "none";
-
-    cGeografyTab.classList.remove("active");
-    cCultureTab.classList.remove("active");
-    cEconomyTab.classList.add("active");
-    cPopulationTab.classList.remove("active");
-    cOverviewTab.classList.remove("active");
-});
-
-cCultureTab.addEventListener("click", function() {
-    cGeografy.style.display = "none";
-    cCulture.style.display = "block";
-    cEconomy.style.display = "none";
-    cPopulation.style.display = "none";
-    cOverview.style.display = "none";
-
-    cGeografyTab.classList.remove("active");
-    cCultureTab.classList.add("active");
-    cEconomyTab.classList.remove("active");
-    cPopulationTab.classList.remove("active");
-    cOverviewTab.classList.remove("active");
-});
-
-cGeografyTab.addEventListener("click", function() {
-    cGeografy.style.display = "block";
-    cCulture.style.display = "none";
-    cEconomy.style.display = "none";
-    cPopulation.style.display = "none";
-    cOverview.style.display = "none";
-
-    cGeografyTab.classList.add("active");
-    cCultureTab.classList.remove("active");
-    cEconomyTab.classList.remove("active");
-    cPopulationTab.classList.remove("active");
-    cOverviewTab.classList.remove("active");
-});
-
-const aboutTab = document.getElementById("aboutTab");
-const aboutContent = document.getElementById("aboutContent");
-const changelogTab = document.getElementById("changelogTab");
-const changelogContent = document.getElementById("changelogContent");
-
-aboutTab.addEventListener("click", function() {
-    changelogContent.style.display = "none";
-    aboutContent.style.display = "block";
-
-    changelogTab.classList.remove("active");
-    aboutTab.classList.add("active");
-});
-
-changelogTab.addEventListener("click", function() {
-    changelogContent.style.display = "block";
-    aboutContent.style.display = "none";
-
-    changelogTab.classList.add("active");
-    aboutTab.classList.remove("active");
-});
-
 const changeLog = {
+    "0.0.4": [
+        "refactor GUI system"
+    ],
     "0.0.3": [
         "add voronoi terrain generation",
         "make it possible to select country"

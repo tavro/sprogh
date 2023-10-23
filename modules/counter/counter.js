@@ -1,4 +1,6 @@
-let currentDate = new Date();
+let currentYear = 0;
+let currentMonth = 0;
+let currentDay = 1;
 let interval;
 let paused = true;
 
@@ -8,10 +10,18 @@ const pauseBtn = document.getElementById('pauseBtn');
 const fastForwardBtn = document.getElementById('fastForwardBtn');
 
 function updateDate() {
-  currentDate.setDate(currentDate.getDate() + 1);
-  const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-  const day = String(currentDate.getDate()).padStart(2, '0');
+  currentDay++;
+  if (currentDay > 31) {
+    currentDay = 1;
+    currentMonth++;
+    if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
+    }
+  }
+  const year = currentYear;
+  const month = String(currentMonth + 1).padStart(2, '0');
+  const day = String(currentDay).padStart(2, '0');
   dateElement.textContent = `${year}-${month}-${day}`;
 }
 
