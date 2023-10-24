@@ -13,9 +13,11 @@ function updateDate() {
   currentDay++;
   if (currentDay > 31) {
     currentDay = 1;
+    showNotification("A month just passed!");
     currentMonth++;
     if (currentMonth > 11) {
-      currentMonth = 0;
+        showNotification("A year just passed!");
+        currentMonth = 0;
       currentYear++;
     }
   }

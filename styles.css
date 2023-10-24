@@ -74,6 +74,18 @@ body {
     --sans-serif: Helvetica, Arial, sans-serif;
 }
 
+.notification {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--bg-main);
+    color: var(--dark-solid);
+    padding: 15px 20px;
+    border: 1px solid var(--dark-solid);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
 .options {
     display: block; 
     width: 300px;

@@ -12,5 +12,12 @@
     "0.0.3": [
         "add voronoi terrain generation",
         "make it possible to select country"
+    ],
+    "0.0.4": [
+        "refactor GUI system"
+    ],
+    "0.0.5": [
+        "implement notification system",
+        "generate cities"
     ]
 }

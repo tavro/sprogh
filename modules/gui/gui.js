@@ -62,6 +62,10 @@ for(let i = 0; i < 3; i++) {
 }
 
 const changeLog = {
+    "0.0.5": [
+        "implement notification system",
+        "generate cities"
+    ],
     "0.0.4": [
         "refactor GUI system"
     ],

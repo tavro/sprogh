@@ -149,6 +149,39 @@ document.addEventListener("keydown", function(event) {
             ctx2.stroke();
 
             isSelected = true;
+
+            const numDots = 10;
+            for (let i = 0; i < numDots; i++) {
+                ctx2.fillStyle = "red";
+                let randomX, randomY;
+                let isInsideCell = false;
+                while (!isInsideCell) {
+                    randomX = minX + Math.random() * cellWidth;
+                    randomY = minY + Math.random() * cellHeight;
+                    isInsideCell = ctx2.isPointInPath(cellPath(selectedCell), randomX, randomY);
+                }
+                
+                const dotRadius = Math.random() * 4 + 2;
+                ctx2.beginPath();
+                ctx2.arc(
+                    randomX * scaleFactorX + offsetX,
+                    randomY * scaleFactorY + offsetY,
+                    dotRadius,
+                    0,
+                    2 * Math.PI
+                );
+                ctx2.fill();
+
+                const cityName = "City" + i;
+                ctx2.font = "12px Arial";
+                ctx2.fillStyle = "black";
+                ctx2.textAlign = "center";
+                ctx2.fillText(
+                    cityName,
+                    randomX * scaleFactorX + offsetX,
+                    (randomY - dotRadius - 5) * scaleFactorY + offsetY
+                );
+            }
         }
     }
 });
