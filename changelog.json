@@ -19,5 +19,10 @@
     "0.0.5": [
         "implement notification system",
         "generate cities"
+    ],
+    "0.0.6": [
+        "translate website to english",
+        "generate city names",
+        "add city overview GUI window"
     ]
 }

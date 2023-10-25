@@ -151,6 +151,7 @@ document.addEventListener("keydown", function(event) {
             isSelected = true;
 
             const numDots = 10;
+            const cityNames = generateRandomCityNames(numDots);
             for (let i = 0; i < numDots; i++) {
                 ctx2.fillStyle = "red";
                 let randomX, randomY;
@@ -172,7 +173,7 @@ document.addEventListener("keydown", function(event) {
                 );
                 ctx2.fill();
 
-                const cityName = "City" + i;
+                const cityName = cityNames[i];
                 ctx2.font = "12px Arial";
                 ctx2.fillStyle = "black";
                 ctx2.textAlign = "center";

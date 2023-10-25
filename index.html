@@ -359,29 +359,29 @@
         </div>
         <div id="land-window" class="options movable2" style="display: none; width: 350px; top: 512px; left: 400px;">
             <div class="options-header" id="oh2">
-                <h1>landgenerator</h1>
+                <h1>Country Information</h1>
                 <button type="button" id="collapseButton2">_</button>
                 <button type="button">✕</button>
             </div>
             <div id="collapsable2" style="display: block;">
                 <div class="tab">
-                    <button id="cOverviewTab" class="optionsbtn active">Översikt</button>
-                    <button id="cPopulationTab" class="optionsbtn">Befolkning</button>
-                    <button id="cEconomyTab" class="optionsbtn">Ekonomi</button>
-                    <button id="cCultureTab" class="optionsbtn">Kultur</button>
-                    <button id="cGeografyTab" class="optionsbtn">Geografi</button>
+                    <button id="cOverviewTab" class="optionsbtn active">Overview</button>
+                    <button id="cPopulationTab" class="optionsbtn">Population</button>
+                    <button id="cEconomyTab" class="optionsbtn">Economy</button>
+                    <button id="cCultureTab" class="optionsbtn">Culture</button>
+                    <button id="cGeografyTab" class="optionsbtn">Geografy</button>
                 </div>
                 
                 <div id="cOverviewContent" class="tabcontent" style="display: block;">
-                    <h2>landnamn</h2>
+                    <h2>Country Name</h2>
 
                     <canvas id="countryCanvas" width="156" height="156"></canvas>
 
-                    <p id="co-lang"><b>Officiellt språk: </b></p>
-                    <p id="co-population"><b>Befolkning: </b></p>
-                    <p id="co-area"><b>Yta: </b></p>
-                    <p id="co-economy"><b>Pengar: </b></p>
-                    <p id="co-currency"><b>Valuta: </b></p>
+                    <p id="co-lang"><b>Official Language: </b></p>
+                    <p id="co-population"><b>Population: </b></p>
+                    <p id="co-area"><b>Area: </b></p>
+                    <p id="co-economy"><b>Money: </b></p>
+                    <p id="co-currency"><b>Currency: </b></p>
                 </div>
                 <div id="cPopulationContent" class="tabcontent" style="display: none;">
                     <p>10-30 invånare per km<sup>2</sup></p>
@@ -399,7 +399,7 @@
         </div>
         <div class="options movable1" style="display: block; width: 300px; top: 128px; left: 400px;">
             <div class="options-header" id="oh1">
-                <h1>program information</h1>
+                <h1>Program Information</h1>
                 <button type="button" id="collapseButton3">_</button>
                 <button type="button">✕</button>
             </div>
@@ -433,9 +433,27 @@
                 </div>
             </div>
         </div>
+        <div class="options movable4" style="display: block; width: 300px; top: 128px; right: 400px;">
+            <div class="options-header" id="oh4">
+                <h1>City Information</h1>
+                <button type="button" id="collapseButton4">_</button>
+                <button type="button">✕</button>
+            </div>
+            <div id="collapsable4" style="display: block;">
+                <div class="tab">
+                    <button id="ci-overviewTab" class="optionsbtn active">Overview</button>
+                </div>
+                
+                <div id="ci-overviewContent" class="tabcontent" style="display: block;">
+                    <p>
+                        No city is selected.
+                    </p>
+                </div>
+            </div>
+        </div>
         <div id="game-window" class="options" style="display: none; width: 300px; bottom: 0; left: 0;">
             <div class="options-header">
-                <h1>game</h1>
+                <h1>Game</h1>
             </div>
             <div style="display: block;">
                 <div class="tabcontent" style="display: block;">
@@ -453,6 +471,7 @@
     </main>
     
     <!--<script src="modules/utils/"></script>-->
+    <script src="modules/generators/name-gen.js"></script>
     <script src="modules/notification/notification.js"></script>
     <script src="modules/counter/counter.js"></script>
     <script src="modules/generators/flag-gen.js"></script>

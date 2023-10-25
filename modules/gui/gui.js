@@ -49,8 +49,9 @@ function addWindowListener(prefixes) {
 addWindowListener(["grammar", "overview", "dictionary"]);
 addWindowListener(["cOverview", "cPopulation", "cEconomy", "cCulture", "cGeografy"]);
 addWindowListener(["about", "changelog", "tutorial"]);
+addWindowListener(["ci-overview"]);
 
-for(let i = 0; i < 3; i++) {
+for(let i = 0; i < 4; i++) {
     const id = "collapseButton" + (i + 1);
     const collapseButton = document.getElementById(id);
     collapseButton.addEventListener("click", function() {
@@ -62,6 +63,11 @@ for(let i = 0; i < 3; i++) {
 }
 
 const changeLog = {
+    "0.0.6": [
+        "translate website to english",
+        "generate city names",
+        "add city overview GUI window"
+    ],
     "0.0.5": [
         "implement notification system",
         "generate cities"
@@ -98,7 +104,7 @@ function updateChangelogTab() {
 }
 updateChangelogTab();
 
-for(let i = 0; i < 3; i++) {
+for(let i = 0; i < 4; i++) {
     document.addEventListener("DOMContentLoaded", function() {
         const id = "oh" + (i+1);
         var optionsHeader = document.getElementById(id);
