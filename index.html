@@ -375,8 +375,6 @@
                 <div id="cOverviewContent" class="tabcontent" style="display: block;">
                     <h2>Country Name</h2>
 
-                    <canvas id="countryCanvas" width="156" height="156"></canvas>
-
                     <p id="co-lang"><b>Official Language: </b></p>
                     <p id="co-population"><b>Population: </b></p>
                     <p id="co-area"><b>Area: </b></p>
@@ -433,7 +431,7 @@
                 </div>
             </div>
         </div>
-        <div class="options movable4" style="display: block; width: 300px; top: 128px; right: 400px;">
+        <div class="options movable4" id="city-window" style="display: none; width: 300px; top: 128px; right: 400px;">
             <div class="options-header" id="oh4">
                 <h1>City Information</h1>
                 <button type="button" id="collapseButton4">_</button>
@@ -445,9 +443,12 @@
                 </div>
                 
                 <div id="ci-overviewContent" class="tabcontent" style="display: block;">
-                    <p>
-                        No city is selected.
-                    </p>
+                    <h2 id="ci-name">No city has been selected!</h2>
+
+                    <canvas id="countryCanvas" width="156" height="156"></canvas>
+
+                    <p id="ci-population"></p>
+                    <p id="ci-area"></p>
                 </div>
             </div>
         </div>

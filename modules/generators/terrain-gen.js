@@ -5,6 +5,7 @@ canvas2.height = window.innerHeight;
 
 const voronoi = new Voronoi();
 const sites = [];
+const cities = [];
 const diagram = generateVoronoiDiagram();
 let hoveredCellIndex = null;
 let isSelected = false;
@@ -105,9 +106,11 @@ document.addEventListener("keydown", function(event) {
             const gameWindow = document.getElementById("game-window");
             const langWindow = document.getElementById("lang-window");
             const landWindow = document.getElementById("land-window");
+            const cityWindow = document.getElementById("city-window");
             gameWindow.style.display = "block";
             langWindow.style.display = "block";
             landWindow.style.display = "block";
+            cityWindow.style.display = "block";
 
             const selectedCell = diagram.cells[selectedCellIndex];
 
@@ -150,6 +153,7 @@ document.addEventListener("keydown", function(event) {
 
             isSelected = true;
 
+            
             const numDots = 10;
             const cityNames = generateRandomCityNames(numDots);
             for (let i = 0; i < numDots; i++) {
@@ -182,8 +186,59 @@ document.addEventListener("keydown", function(event) {
                     randomX * scaleFactorX + offsetX,
                     (randomY - dotRadius - 5) * scaleFactorY + offsetY
                 );
+
+                const city = {
+                    x: randomX * scaleFactorX + offsetX,
+                    y: randomY * scaleFactorY + offsetY,
+                    radius: dotRadius,
+                    name: cityName
+                };
+                cities.push(city);
+
             }
+            splitNumberIntoGroups(cities, country.population, "population");
+            splitNumberIntoGroups(cities, country.area, "area");
         }
+    }
+});
+
+function getCityName(mouseX, mouseY) {
+    for (let i = 0; i < cities.length; i++) {
+        const city = cities[i];
+        const distance = Math.sqrt((mouseX - city.x) ** 2 + (mouseY - city.y) ** 2);
+        
+        if (distance <= city.radius) {
+            return cities[i];
+        }
+    }
+    return undefined;
+}
+
+function splitNumberIntoGroups(objects, largeNumber, attribute) {
+    const totalRadius = objects.reduce((sum, obj) => sum + obj.radius, 0);
+
+    for (let i = 0; i < objects.length; i++) {
+        const ratio = objects[i].radius / totalRadius;
+        const value = Math.floor(largeNumber * ratio);
+        objects[i][attribute] = value;
+    }
+
+    return objects;
+}
+
+canvas2.addEventListener('click', function(event) {
+    const rect = canvas2.getBoundingClientRect();
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    const city = getCityName(mouseX, mouseY);
+    if(city) {
+        const title = document.getElementById("ci-name");
+        const pop = document.getElementById("ci-population");
+        const area = document.getElementById("ci-area");
+        title.innerHTML = city.name;
+        pop.innerHTML = "<b>Population: </b>" + city.population;
+        area.innerHTML = "<b>Area: </b>" + city.area + " km<sup>2</sup>";
     }
 });
 

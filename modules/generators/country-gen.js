@@ -16,13 +16,18 @@ function generateCurrencyName() {
     return randomPrefix + randomSuffix;
 }
 
+const country = {
+    population: 0,
+    area: 0
+}
+
 function generateData() {
-    const area = getRandomNumber(2, 17000000);
-    const population = area * getRandomNumber(10, 30);
+    country.area = getRandomNumber(2, 17000000);
+    country.population = country.area * getRandomNumber(10, 30);
     const money = getRandomNumber(0, 150000);
     
-    const formattedArea = formatNumberWithSpaces(area);
-    const formattedPopulation = formatNumberWithSpaces(population);
+    const formattedArea = formatNumberWithSpaces(country.area);
+    const formattedPopulation = formatNumberWithSpaces(country.population);
     const formattedMoney = formatNumberWithSpaces(money);
     
     const areaElement = document.getElementById("co-area");
@@ -31,7 +36,7 @@ function generateData() {
     const currencyElement = document.getElementById("co-currency");
 
     areaElement.innerHTML += formattedArea + " km<sup>2</sup>";
-    populationElement.innerHTML += formattedPopulation + " st";
+    populationElement.innerHTML += formattedPopulation;
     economyElement.innerHTML += formattedMoney + " bn $";
     currencyElement.innerHTML += generateCurrencyName().toLowerCase();
 }

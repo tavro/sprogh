@@ -24,5 +24,8 @@
         "translate website to english",
         "generate city names",
         "add city overview GUI window"
+    ],
+    "0.0.7": [
+        "make it possible to select cities"
     ]
 }

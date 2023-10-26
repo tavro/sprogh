@@ -63,6 +63,9 @@ for(let i = 0; i < 4; i++) {
 }
 
 const changeLog = {
+    "0.0.7": [
+        "make it possible to select cities"
+    ],
     "0.0.6": [
         "translate website to english",
         "generate city names",
