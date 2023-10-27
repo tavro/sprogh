@@ -27,5 +27,8 @@
     ],
     "0.0.7": [
         "make it possible to select cities"
+    ],
+    "0.0.8": [
+        "see happenings for selected city"
     ]
 }

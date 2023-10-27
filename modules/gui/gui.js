@@ -49,7 +49,7 @@ function addWindowListener(prefixes) {
 addWindowListener(["grammar", "overview", "dictionary"]);
 addWindowListener(["cOverview", "cPopulation", "cEconomy", "cCulture", "cGeografy"]);
 addWindowListener(["about", "changelog", "tutorial"]);
-addWindowListener(["ci-overview"]);
+addWindowListener(["ci-overview", "ci-happenings"]);
 
 for(let i = 0; i < 4; i++) {
     const id = "collapseButton" + (i + 1);
@@ -63,6 +63,9 @@ for(let i = 0; i < 4; i++) {
 }
 
 const changeLog = {
+    "0.0.8": [
+        "see happenings for selected city"
+    ],
     "0.0.7": [
         "make it possible to select cities"
     ],

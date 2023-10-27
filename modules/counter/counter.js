@@ -9,11 +9,37 @@ const startBtn = document.getElementById('startBtn');
 const pauseBtn = document.getElementById('pauseBtn');
 const fastForwardBtn = document.getElementById('fastForwardBtn');
 
+function getMonthName() {
+    const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    if (currentMonth >= 0 && currentMonth <= 11) {
+        return months[currentMonth];
+    } else {
+        return "Invalid month number";
+    }
+}
+
+function generateHappenings() {
+    const happenings = getRandomNumber(4, 9);
+    for(let i = 0; i < happenings; i++) {
+        const day = getRandomNumber(1, 31);
+        const city = getRandomElement(cities);
+
+        const date = getMonthName() + " " + day + " - ";
+        city.happenings.push(date);
+    }
+    console.log(cities);
+}
+
 function updateDate() {
   currentDay++;
   if (currentDay > 31) {
     currentDay = 1;
     showNotification("A month just passed!");
+    generateHappenings();
     currentMonth++;
     if (currentMonth > 11) {
         showNotification("A year just passed!");

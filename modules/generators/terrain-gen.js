@@ -191,7 +191,8 @@ document.addEventListener("keydown", function(event) {
                     x: randomX * scaleFactorX + offsetX,
                     y: randomY * scaleFactorY + offsetY,
                     radius: dotRadius,
-                    name: cityName
+                    name: cityName,
+                    happenings: []
                 };
                 cities.push(city);
 
@@ -239,6 +240,25 @@ canvas2.addEventListener('click', function(event) {
         title.innerHTML = city.name;
         pop.innerHTML = "<b>Population: </b>" + city.population;
         area.innerHTML = "<b>Area: </b>" + city.area + " km<sup>2</sup>";
+
+        const title2 = document.getElementById("ci-name2");
+        
+        const happeningDiv = document.getElementById("ci-happenings");
+        while (happeningDiv.firstChild) {
+            happeningDiv.removeChild(happeningDiv.firstChild);
+        }
+
+        if(city.happenings.length === 0) {
+            title2.innerHTML = "There has not been any major happenings in this city yet."
+        }
+        else {
+            title2.innerHTML = city.name;
+            for(let i = 0; i < city.happenings.length; i++) {
+                const paragraph = document.createElement("p");
+                paragraph.innerHTML = city.happenings[i];
+                happeningDiv.appendChild(paragraph);
+            }
+        }
     }
 });
 

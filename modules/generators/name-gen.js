@@ -25,4 +25,3 @@ function generateRandomCityNames(numberOfCities) {
 
 const numberOfCities = 10;
 const randomCityNames = generateRandomCityNames(numberOfCities);
-console.log(randomCityNames);
