@@ -1,23 +1,39 @@
 {   
-    "war": [
-
-    ],
     "adventure": [
-
-    ],
-    "culture": [
-
+        "Personer från [LAND1] under [PERSON]s ledning anländer till [LAND2]. {PERSON:isFrom:LAND1, PERSON:isIn:LAND2}",
+        "Kaptenen [PERSON] från [LAND] upptäcker [Ö]. {PERSON:isFrom:LAND, PERSON:discovered:Ö}",
+        "[PERSON] anländer till [STAD1] efter att ha flytt från [STAD2]s slott på [Ö]. {PERSON:isIn:STAD1, PERSON:onTheRunFrom:STAD2, PERSON:onTheRunFrom:Ö}"
     ],
     "politics": [
-
-    ],
-    "science": [
-
-    ],
-    "crime": [
-
+        "Kung [PERSON] anländer till [STAD] för att inleda mötet med stormännen från [LAND]. {PERSON:isIn:STAD}",
+        //"Stort möte hålls i [STAD], men man känner inte till mycket om hur det går till eller vad som diskuteras.", // ATTRIBUT
+        //"Kung [PERSON1] får underrättelser om [PERSON2], vilken i [STADSDEL] ska ha slagit ihjäl hans fogde samt bränt ner en av kronans gårdar. Kungen avbryter då genast sin påbörjade resa från [STAD1] till [STAD2] och beger sig mot [STAD3].", // Complex relation
+        //"Missnöjda stormän från [LAND] gör uppror mot kung [PERSON1] och driver honom ur landet, med motiveringen att han har brutit mot [STADSDEL] recess. Detta är första steget i avsättningskriget mot kung [PERSON1].", // Complex relation
+        //"[STAD]s slott överlämnas åt [PERSON] mot ett löfte att invånarna får lämna staden fritt med alla sina ägodelar.", // Complex relation
+        //"[PERSON] den äldre väljs till [LAND]s riksföreståndare.", // REQUIREMENT
+        //"[PERSON] den äldre ger fulla rättigheter för import och export från och till utlandet åt [STAD].", // ACTION
+        //"[PERSON] erövrar [STAD] från folk från [LAND].", // Complex relation
+        //"Trupperna från [LAND1] i [LAND2] kapitulerar vid [STAD1] och en vicekung från [LAND3] installeras i [STAD2].", // Complex relation
+        //"[PERSON1] väljs till [LAND]s riksföreståndare sedan [PERSON2] den äldre har avlidit en månad tidigare. [PERSON3] blir hans minister och krigsöverste.", // ACTION
+        //"Stillestånd sluts mellan [LAND1] och [LAND2] i [STAD1]. Häri beslutas om förhandlingar i [STAD2].", // Complex relation
+        "Ett stillestånd sluts mellan [LAND1] och [LAND2] i [STAD]. {LAND1-hasTruce-LAND2}",
+        "Stillestånd sluts mellan [LAND1] och [LAND2] i [STAD]. {LAND1-hasTruce-LAND2}",
+        "[STAD1] ockuperar [STAD2]. {STAD2:occupiedBy:STAD1}",
+        "Ett möte mellan [LAND1] och [LAND2] hålls i [STAD]. Man beslutar om vapenvila. {LAND1:hadMeeting:LAND2, LAND1-hasTruce-LAND2}",
+        "Ett möte hålls mellan [LAND1] och [LAND2] i [STAD]. {LAND1:hadMeeting:LAND2}",
+        "Ett möte hålls med [LAND1] och [LAND2] i [STAD]. {LAND1:hadMeeting:LAND2}",
+        //"[STAD1] ockupation av [STAD2] upphör.", // REQUIREMENT
+        "Stillestånd sluts mellan [LAND1] och [LAND2] i [STAD]. Man lyckas inte lösa frågan om tributen. {LAND1-hasTruce-LAND2}",
+        "[PERSON] kröns till kung av [LAND] i [STAD]. {PERSON:isKingOf:LAND}",
+        //"Slaget vid [STAD1] mellan [LAND1] och [LAND2] utkämpas utanför [STAD2], [LAND2].", // Complex relation
+        //"Ett möte hålls mellan [LAND1] och [LAND2] i [STAD]. [PERSON1] den yngres fredsförhandlingar med [PERSON2] bryter samman, men vapenvilan förlängs.", // REQUIREMENT
+        //"[STAD] får stadsprivilegier.", // ACTION
+        //"Armén från [LAND1] försöker ta sig in i [STAD], men [PERSON1] den yngre bjuder hårdnackat motstånd. Armén tvingas börja äta sina hästar.", // Complex relation
+        //"[STAD] grundas." // ACTION
     ],
     "miscellaneous": [
-        
+        "[PERSON1] gifter sig med [PERSON2]. {PERSON1-marriedTo-PERSON2}",
+        "[PERSON1] den yngre gifter sig med [PERSON2]. {PERSON1-marriedTo-PERSON2}",
+        "[PERSON1] gifter sig med [PERSON2] av [LAND]. {PERSON1-marriedTo-PERSON2, PERSON2:isFrom:LAND}"
     ]
 }

@@ -1,0 +1,222 @@
+{
+  "1500": {
+    "Februari": [
+      "[UNION] anfaller [DISTRIKT], en fri bonderepublik strax söder om [LAND]."
+    ],
+    "April": [
+      "[LAND1]s kust siktas av [PERSON] från [LAND2]."
+    ],
+    "Maj": [
+      "Stillestånd sluts mellan [UNION] och [DISTRIKT1]. [DISTRIKT1] behåller sitt oberoende."
+    ],
+    "Augusti": [
+      "[PERSON] upptäcker som första person från [LAND1] landet [LAND2]."
+    ]
+  },
+  "1501": {
+    "Januari": [
+      "Ett antal rådsherrar från [LAND1] träffas för att \"skydda [LAND1] mot kungens övervåld\".",
+      "Kung [PERSON] anländer till [STAD] för att inleda mötet med stormännen från [LAND].", // ANVÄND
+      "Stort möte hålls i [STAD], men man känner inte till mycket om hur det går till eller vad som diskuteras." // ANVÄND
+    ],
+    "Mars": [
+      "En dom mot [PERSON1] faller och [PERSON1] tvingas att återbetala en viss pengasumma som gått förlorad i kriget i [LAND] till en grupp adelsmän, då klagomålen på denna förlust riktas mot [PERSON1].", 
+      "Kung [PERSON1] får underrättelser om [PERSON2], vilken i [STADSDEL] ska ha slagit ihjäl hans fogde samt bränt ner en av kronans gårdar. Kungen avbryter då genast sin påbörjade resa från [STAD1] till [STAD2] och beger sig mot [STAD3]." //ANVÄND
+    ],
+    "Augusti": [
+      "Missnöjda stormän från [LAND] gör uppror mot kung [PERSON1] och driver honom ur landet, med motiveringen att han har brutit mot [STADSDEL] recess. Detta är första steget i avsättningskriget mot kung [PERSON1].", // ANVÄND
+      "En belägring av [STAD] hus inleds i avsikt att avsätta slottsfogden [PERSON] från [LAND]."
+    ],
+    "Oktober": [
+      "[STAD], som belägras av [PERSON1] män, sätts medvetet i brand av kung [PERSON2]s anhängare. Detta blir anledningen till att stadens portar slutligen öppnas för [PERSON1]s män och ett släckningsarbete kan påbörjas. Staden hamnar därmed i [PERSON1]s händer med undantag av slottet, vilket fortfarande hålls av drottning [PERSON3].", // GÅR ATT ANVÄNDA
+      "[PERSON1] genomför den så kallade [NAMN]banketten i sin far [PERSON2]s påvliga palats."
+    ],
+    "November": [
+      "[STAD]s slott överlämnas åt [PERSON] mot ett löfte att invånarna får lämna staden fritt med alla sina ägodelar.", //ANVÄND
+      "[PERSON] den äldre väljs till [LAND]s riksföreståndare för andra gången." //ANVÄND
+    ]
+  },
+  "1502": {
+    "Januari": [
+      "Upptäcktsresande personer från [LAND] ledda av [PERSON], seglar in i [STAT]viken, misstar den för en flodmynning, som de kallar [NAMN]."
+    ],
+    "Maj": [
+      "Kung [PERSON1] gemål [PERSON2] av [STAT] tvingas, i och med [STAD1]s dagtingan, uppge [STAD1] som belägrats av [PERSON3].",
+      "Amiral [PERSON] upptäcker [Ö], som han gör anspråk på för [LAND]."
+    ],
+    "Augusti": [
+      "[PERSON] den äldre ger fulla rättigheter för import och export från och till utlandet åt [STAD]." //ANVÄND
+    ]
+  },
+  "1503": {
+    "Maj": [
+      "[PERSON] erövrar [STAD] från folk från [LAND]." //ANVÄND
+    ],
+    "September": [
+      "Sedan [PERSON1] har avlidit den [DATUM] väljs [PERSON2] till påve och tar namnet [NAMN]. Han avlider dock efter endast en månad på posten."
+    ],
+    "November": [
+      "Sedan [PERSON1] har avlidit den [DATUM] väljs [PERSON2] till påve och tar namnet [NAMN]."
+    ]
+  },
+  "1504": {
+    "Januari": [
+      "Trupperna från [LAND1] i [LAND2] kapitulerar vid [STAD1] och en vicekung från [LAND3] installeras i [STAD2].", //ANVÄND
+      "[PERSON1] väljs till [LAND]s riksföreståndare sedan [PERSON2] den äldre har avlidit en månad tidigare. [PERSON3] blir hans minister och krigsöverste." //ANVÄND
+    ],
+    "Februari": [
+      "Ärkebiskop [PERSON] inviger klosterkyrkan för [KOMMUN]s kloster.",
+      "[PERSON] den äldre begravs i klosterkyrkan i [KOMMUN]."
+    ],
+    "Maj": [
+      "Stillestånd sluts mellan [LAND1] och [LAND2] i [STAD1]. Häri beslutas om förhandlingar i [STAD2]." //ANVÄND
+    ],
+    "September": [
+      "Ett stillestånd sluts mellan [LAND1] och [LAND2] i [STAD]." // ANVÄND
+    ],
+    "November": [
+      "[PERSON1] gifter sig med [PERSON2]." // ANVÄND
+    ]
+  },
+  "1505": {
+    "Juli": [
+      "Personer från [LAND1] döms i sin frånvaro för majestätsbrott. Domen sanktioneras av kejsaren [PERSON] från [LAND2]."
+    ],
+    "Oktober": [
+      "Vid [PERSON1]:s död efterträds han som storfurste av [RIKE] av sin son [PERSON2]."
+    ],
+    "November": [
+      "Personer från [LAND1] under [PERSON]s ledning anländer till [LAND2]." // ANVÄND
+    ]
+  },
+  "1506": {
+    "Maj": [
+      "Amiralen [PERSON1] från [LAND1] upptäcker [PERSON2], som han gör anspråk på för [LAND1]s räkning."
+    ]
+  },
+  "1507": {
+    "Februari": [
+      "Kaptenen [PERSON] från [LAND] upptäcker [Ö]." // ANVÄND
+    ]
+  },
+  "1508": {
+    "April": [
+      "Stillestånd sluts med mellan [LAND1] och [LAND2] i [STAD]." // ANVÄND
+    ],
+    "Maj": [
+      "[STAD1] ockuperar [STAD2]." // ANVÄND
+    ],
+    "Juni": [
+      "Ett möte mellan [LAND1] och [LAND2] hålls i [STAD]. Man beslutar om vapenvila, medan handelsblockaden kvarstår." //ANVÄND
+    ]
+  },
+  "1509": {
+    "Januari": [
+      "Ett möte hålls med [LAND1] och [LAND2] i [STAD]." //ANVÄND
+    ],
+    "April": [
+      "Vid [PERSON1]:s död efterträds han som kung av [LAND1] och herre över [LAND2] av sin son [PERSON2]."
+    ],
+    "Augusti": [
+      "Unionsvänliga stormän från [LAND1] sluter i hemlighet fred med folk från [LAND2] i [STAD]. Härvid utverkar de från [LAND2] en sjöfartsblockad mot [LAND1]. Det [LAND1] riksrådet tvingas också betala årlig skatt till [LAND2]. Då [PERSON] vägrar godta fredsfördraget bryter kriget ut på nytt."
+    ],
+    "Oktober": [
+      "[STAD1] ockupation av [STAD2] upphör." //ANVÄND
+    ]
+  },
+  "1510": {
+    "Mars": [
+      "[NUMMER]-årig fred sluts mellan [LAND1] och [LAND2].",
+      "[LAND] ockuperar [STAT]."
+    ],
+    "Augusti": [
+      "Folk från [LAND1] besegras av folk från [LAND2] i slaget vid [STAD]."
+    ],
+    "November": [
+      "[STAT] blir en koloni av [LAND]."
+    ]
+  },
+  "1511": {
+    "November": [
+      "[PERSON1] den yngre gifter sig med [PERSON2]." //ANVÄND
+    ]
+  },
+  "1512": {
+    "April": [
+      "Halvön [Ö] upptäcks av folk från [LAND].",
+      "Ett möte hålls mellan [LAND1] och [LAND2] i [STAD]." //ANVÄND
+    ],
+    "Juli": [
+      "[PERSON1] den yngre väljs till riksföreståndare i [LAND] efter att ha gått med på rådets krav, varvid [PERSON2] alltså avsätts från posten."
+    ]
+  },
+  "1513": {
+    "Februari": [
+      "Vid kungen [PERSON1] från [LAND]s död efterträds han som kung av sin son [PERSON2]."
+    ],
+    "Mars": [
+      "Sedan [PERSON1] har avlidit den [DATUM] väljs [PERSON2] till påve och tar namnet [NAMN]. Han utropas till påve två dagar senare."
+    ],
+    "April": [
+      "Upptäckaren [PERSON] från [LAND] upptäcker [Ö] när han söker efter ungdomens källa."
+    ],
+    "Juli": [
+      "Stillestånd sluts mellan [LAND1] och [LAND2] i [STAD]. Man lyckas inte lösa frågan om tributen." //ANVÄND
+    ],
+    "September": [
+      "Vid [PERSON1]:s död efterträds han som kung av [LAND] av sin [NUMMER]-årige son [PERSON2]."
+    ],
+    "December": [
+      "[BY] blir fullvärdig medlem av edsförbundet i [LAND]."
+    ]
+  },
+  "1514": {
+    "Juni": [
+      "[PERSON] kröns till kung av [LAND] i [STAD].", //ANVÄND
+      "Slaget vid [STAD1] mellan [LAND1] och [LAND2] utkämpas utanför [STAD2], [LAND2]." //ANVÄND
+    ]
+  },
+  "1515": {
+    "Juli": [
+      "Ett möte hålls mellan [LAND1] och [LAND2] i [STAD]. [PERSON1] den yngres fredsförhandlingar med [PERSON2] bryter samman, men vapenvilan förlängs." //ANVÄND
+    ],
+    "Augusti": [
+      "[PERSON1] gifter sig med [PERSON2] av [LAND]." //ANVÄND
+    ],
+    "September": [
+      "Trupper från [LAND1] under [PERSON] besegrar [STAD]s legotrupper i slaget vid [KOMMUN]."
+    ]
+  },
+  "1516": {
+    "Oktober": [
+      "[STAD] får stadsprivilegier." //ANVÄND
+    ]
+  },
+  "1517": {
+    "Augusti": [
+      "Flottan från [LAND], under ledning av [PERSON1]s farbror [PERSON2], landsätter en här vid [STAD].",
+      "En trupp från [LAND] anfaller och förstör [STAD1], men slås tillbaka i slaget vid [STAD2].",
+      "[LAND] blir en provins i [RIKE]."
+    ],
+    "December": [
+      "[PERSON1] kapitulerar och ger sig fången efter belägringen av [PERSON2]s borg."
+    ]
+  },
+  "1518": {
+    "Juli": [
+      "Folk från [LAND1] besegrar folk från [LAND2] i slaget vid [NAMN]."
+    ],
+    "Oktober": [
+      "Armén från [LAND1] försöker ta sig in i [STAD], men [PERSON1] den yngre bjuder hårdnackat motstånd. Armén tvingas börja äta sina hästar." //ANVÄND
+    ]
+  },
+  "1519": {
+    "Augusti": [
+      "[STAD] grundas." //ANVÄND
+    ],
+    "September": [
+      "Folk från [LAND1] besegrar folk från [LAND2] i slaget framför [STAD].",
+      "[PERSON] anländer till [STAD1] efter att ha flytt från [STAD2]s slott på [Ö]." //ANVÄND
+    ]
+  }
+}
