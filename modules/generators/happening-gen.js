@@ -104,14 +104,12 @@ function removeBracketsAndContent(inputString) {
 }
 
 var randomData = getRandomElement(jsonData);
-console.log(randomData);
 for(let i = 0; i < randomData.elements.length; i++) {
     const name = generateRandomNames(1, 3)[0];
     randomData.value = replaceWordInString(randomData.elements[i], randomData.value, name);
 }
 randomData = processAgain(randomData.value);
 randomData.value = removeBracketsAndContent(randomData.value);
-console.log(randomData);
 
 const graph = new RelationGraph();
 randomData.elements.forEach(element => {
