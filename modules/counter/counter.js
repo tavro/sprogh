@@ -22,16 +22,16 @@ function getMonthName() {
     }
 }
 
+const happenings = [];
 function generateHappenings() {
-    const happenings = getRandomNumber(4, 9);
-    for(let i = 0; i < happenings; i++) {
+    const happeningsAmount = getRandomNumber(4, 9);
+    for(let i = 0; i < happeningsAmount; i++) {
         const day = getRandomNumber(1, 31);
-        const city = getRandomElement(cities);
-
-        const date = getMonthName() + " " + day + " - ";
-        city.happenings.push(date);
+        var happening = getMonthName() + " " + day + " - ";
+        happening += generateHappening();
+        happenings.push(happening);
+        console.log(happening);
     }
-    console.log(cities);
 }
 
 function updateDate() {

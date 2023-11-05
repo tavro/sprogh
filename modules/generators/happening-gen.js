@@ -57,20 +57,21 @@ function getRandomElement(data) {
 
     const randomArray = data[randomKey];
     const randomValue = randomArray[Math.floor(Math.random() * randomArray.length)];
+    
+    if(randomValue) {
+        const elements = randomValue.match(/\[([A-Ö0-9_:]+)\]/g) || [];
+        const relationships = randomValue.match(/\{([^{}]+)\}/g) || [];
+        const cleanedElements = elements.map(match => match.replace(/\[|\]/g, ''));
+        let cleanedRelationships = relationships.map(match => match.replace(/\{|\}/g, ''));
+        let rels = getAsArr(cleanedRelationships[0], ',');
+        return {
+            value: randomValue,
+            elements: cleanedElements,
+            relationships: rels
+        };
+    }
 
-    const elements = randomValue.match(/\[([A-Ö0-9_:]+)\]/g) || [];
-
-    const relationships = randomValue.match(/\{([^{}]+)\}/g) || [];
-
-    const cleanedElements = elements.map(match => match.replace(/\[|\]/g, ''));
-    let cleanedRelationships = relationships.map(match => match.replace(/\{|\}/g, ''));
-    let rels = getAsArr(cleanedRelationships[0], ',');
-
-    return {
-        value: randomValue,
-        elements: cleanedElements,
-        relationships: rels
-    };
+    return {};
 }
 
 function processAgain(data) {
@@ -103,26 +104,29 @@ function removeBracketsAndContent(inputString) {
     return finalString;
 }
 
-var randomData = getRandomElement(jsonData);
-for(let i = 0; i < randomData.elements.length; i++) {
-    const name = generateRandomNames(1, 3)[0];
-    randomData.value = replaceWordInString(randomData.elements[i], randomData.value, name);
-}
-randomData = processAgain(randomData.value);
-randomData.value = removeBracketsAndContent(randomData.value);
+function generateHappening() {
+    var randomData = getRandomElement(jsonData);
+    for(let i = 0; i < randomData.elements.length; i++) {
+        const name = generateRandomNames(1, 3)[0];
+        randomData.value = replaceWordInString(randomData.elements[i], randomData.value, name);
+    }
+    randomData = processAgain(randomData.value);
+    randomData.value = removeBracketsAndContent(randomData.value);
 
-const graph = new RelationGraph();
-randomData.elements.forEach(element => {
-    graph.addNode(element);
-});
-randomData.relationships.forEach(element => {
-    if(element.includes('-')) {
-        const rel = getAsArr(element, '-');
-        graph.addTwoWayEdge(rel[0], rel[2], rel[1]);
-    }
-    else if(element.includes(':')) {
-        const rel = getAsArr(element, ':');
-        graph.addEdge(rel[0], rel[2], rel[1]);
-    }
-});
-graph.printAllRelationships();
+    const graph = new RelationGraph();
+    randomData.elements.forEach(element => {
+        graph.addNode(element);
+    });
+    randomData.relationships.forEach(element => {
+        if(element.includes('-')) {
+            const rel = getAsArr(element, '-');
+            graph.addTwoWayEdge(rel[0], rel[2], rel[1]);
+        }
+        else if(element.includes(':')) {
+            const rel = getAsArr(element, ':');
+            graph.addEdge(rel[0], rel[2], rel[1]);
+        }
+    });
+    //graph.printAllRelationships();
+    return randomData.value;
+}
